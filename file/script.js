@@ -202,16 +202,16 @@
                 {
                     id: 'product1',
                     image: 'https://rukminim2.flixcart.com/image/120/120/xif0q/washing-machine-new/r/b/m/-original-imah2tx7cyakc7p8.jpeg',
-                    title: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam, Digital Inverter Motor Fully Automatic Front Load Washing Machine with In-built Heater Grey  (WW90DG5U24AXTL)',
+                    title: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam',
                     description: 'Bank Offer10% instant discount on HDFC Credit Card Transactions, up to ₹1,250 on orders of ₹4,990 and above',
                     price: '₹15,999',
                     rating: 4.5,
                     newSeason: 'Summer 2025 Collection',
-                    detailedDescription: 'Experience the next generation of mobile technology with the Model X. Featuring a stunning OLED display, triple-lens camera system, and all-day battery life. Available in multiple vibrant colors. Includes fast charging support and a durable glass back.',
+                    detailedDescription: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam, Digital Inverter Motor Fully Automatic Front Load Washing Machine with In-built Heater Grey  (WW90DG5U24AXTL)',
                     additionalImages: [
-                        'https://via.placeholder.com/600x400?text=Smartphone+View+1',
-                        'https://via.placeholder.com/600x400?text=Smartphone+View+2',
-                        'https://via.placeholder.com/600x400?text=Smartphone+View+3'
+                        'https://rukminim2.flixcart.com/image/120/120/xif0q/washing-machine-new/r/b/m/-original-imah2tx7cyakc7p8.jpeg',
+                        'https://rukminim2.flixcart.com/image/120/120/xif0q/washing-machine-new/r/b/m/-original-imah2tx7cyakc7p8.jpeg',
+                        'https://rukminim2.flixcart.com/image/120/120/xif0q/washing-machine-new/r/b/m/-original-imah2tx7cyakc7p8.jpeg'
                     ],
                     timeLimit: 'Ends in 1h 30m'
                 },
