@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-commerce Site - Like Flipkart</title>
+    <title>My E-commerce Site - Shop Online for Electronics, Fashion, Home & More | Like Flipkart</title>
+
     <meta name="description" content="Shop online at My E-commerce Site for a wide range of products including electronics, fashion, home goods, appliances, and groceries. Discover hot deals, new arrivals, and exclusive offers. Best prices in India.">
     <meta name="keywords" content="e-commerce, online shopping, buy electronics, fashion online, home appliances, best deals, daily offers, new arrivals, groceries online, India shopping, MySite, discount, sale">
     <meta name="author" content="Your E-commerce Company Name">
-    <link rel="canonical" href="https://www.yourecommerce.com/"> <meta property="og:title" content="My E-commerce Site - Shop Online for Electronics, Fashion, Home & More">
+    <link rel="canonical" href="https://www.yourecommerce.com/">
+    <meta property="og:title" content="My E-commerce Site - Shop Online for Electronics, Fashion, Home & More">
     <meta property="og:description" content="Discover incredible deals on a vast selection of products. Your one-stop shop for all needs.">
-    <meta property="og:image" content="https://www.yourecommerce.com/images/og-image.jpg"> <meta property="og:url" content="https://www.yourecommerce.com/">
+    <meta property="og:image" content="https://www.yourecommerce.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.yourecommerce.com/">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="My E-commerce Site - Shop Online for Electronics, Fashion, Home & More">
     <meta name="twitter:description" content="Discover incredible deals on a vast selection of products. Your one-stop shop for all needs.">
     <meta name="twitter:image" content="https://www.yourecommerce.com/images/twitter-image.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 <style>
@@ -24,99 +27,172 @@
 </style>
 </head>
 <body>
-    <!-- Top Bar -->
     <header class="top-bar">
         <div class="container">
-            <div class="logo"><img src="https://via.placeholder.com/120x40?text=MySite" alt="MySite Logo"></div>
+            <div class="logo">
+                <img src="https://via.placeholder.com/100x40?text=MyLogo" alt="Company Logo">
+            </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search for products..." id="searchInput">
+                <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
                 <button id="searchButton"><i class="fas fa-search"></i></button>
             </div>
-            <nav class="main-nav"><ul id="auth-container"></ul></nav>
+            <nav class="main-nav">
+                <ul id="mainNavItems">
+                    <li id="loginMenuItem"><button class="auth-button" id="loginButton">Login</button></li>
+                    <li id="registerMenuItem"><button class="auth-button" id="registerButton">Register</button></li>
+                    <li id="profileMenuItem" style="display: none;"><button class="auth-button" id="profileButton"><i class="fas fa-user-circle"></i> Profile</button></li>
+                    <li id="logoutMenuItem" style="display: none;"><button class="auth-button" id="logoutButton">Logout</button></li>
+                    <li><button class="apk-button"><i class="fab fa-android"></i> Download App</button></li>
+                    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Category Menu -->
-    <nav class="category-menu"><div class="container"><ul>
-        <li><a href="#">Electronics</a></li><li><a href="#">Fashion</a></li><li><a href="#">Home</a></li><li><a href="#">Appliances</a></li>
-    </ul></div></nav>
+    <nav class="category-menu">
+        <div class="container">
+            <ul>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Home & Furniture</a></li>
+                <li><a href="#">Appliances</a></li>
+                <li><a href="#">Beauty, Toys & More</a></li>
+                <li><a href="#">Grocery</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <main>
-        <!-- Sliders -->
         <section class="image-slider-section">
             <div class="container">
-                <div class="image-slider" id="mainImageSlider"></div>
+                <div class="image-slider" id="mainImageSlider">
+                </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevImageSlide">❮</button>
-                    <button class="next-slide" id="nextImageSlide">❯</button>
+                    <button class="prev-slide" id="prevImageSlide">&#10094;</button>
+                    <button class="next-slide" id="nextImageSlide">&#10095;</button>
                 </div>
             </div>
         </section>
+
+
         <section class="content-slider-section">
             <div class="container">
                 <h2>Still Looking For These?</h2>
-                <div class="content-slider" id="stillLookingSlider"></div>
+                <div class="content-slider" id="stillLookingSlider">
+                </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevStillLookingSlide">❮</button>
-                    <button class="next-slide" id="nextStillLookingSlide">❯</button>
+                    <button class="prev-slide" id="prevStillLookingSlide">&#10094;</button>
+                    <button class="next-slide" id="nextStillLookingSlide">&#10095;</button>
                 </div>
             </div>
         </section>
+
         <section class="content-slider-section">
             <div class="container">
                 <h2>Suggested For You</h2>
-                <div class="content-slider" id="suggestedForYouSlider"></div>
+                <div class="content-slider" id="suggestedForYouSlider">
+                </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevSuggestedSlide">❮</button>
-                    <button class="next-slide" id="nextSuggestedSlide">❯</button>
+                    <button class="prev-slide" id="prevSuggestedSlide">&#10094;</button>
+                    <button class="next-slide" id="nextSuggestedSlide">&#10095;</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modals -->
-    <div id="authModal" class="auth-modal">
-        <div class="auth-modal-content">
-            <span class="auth-close-button">×</span>
-            <div class="auth-tabs">
-                <div class="auth-tab active" data-form="login">Login</div>
-                <div class="auth-tab" data-form="register">Register</div>
-            </div>
-            <div class="auth-form-container">
-                <form id="loginForm" class="auth-form active">
-                    <h2>Welcome Back!</h2>
-                    <div class="form-group"><label for="loginEmail">Email</label><input type="email" id="loginEmail" required></div>
-                    <div class="form-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" required></div>
-                    <button type="submit" class="auth-submit-btn">Login</button>
-                </form>
-                <form id="registerForm" class="auth-form">
-                    <h2>Create Account</h2>
-                    <div class="form-group"><label for="registerName">Name</label><input type="text" id="registerName" required></div>
-                    <div class="form-group"><label for="registerEmail">Email</label><input type="email" id="registerEmail" required></div>
-                    <div class="form-group"><label for="registerPassword">Password</label><input type="password" id="registerPassword" required></div>
-                    <button type="submit" class="auth-submit-btn">Register</button>
-                </form>
-                <div id="auth-error-message"></div>
+    <div id="productDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="productDetailContent">
             </div>
         </div>
     </div>
 
-    <div id="productDetailModal" class="product-modal">
-        <div class="product-modal-content">
-            <span class="auth-close-button">×</span>
-            <div id="productDetailContent"></div>
+    <div id="loginModal" class="modal">
+        <div class="auth-modal-content">
+            <span class="close-button" id="closeLoginModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="auth-form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="auth-form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-button-submit">Login</button>
+                <p class="auth-error-message" id="loginErrorMessage"></p>
+                <a href="#" class="auth-switch-link" id="switchToRegister">Don't have an account? Register</a>
+            </form>
         </div>
     </div>
-    
-    <!-- Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+    <div id="registerModal" class="modal">
+        <div class="auth-modal-content">
+            <span class="close-button" id="closeRegisterModal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="auth-form-group">
+                    <label for="registerName">Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="auth-form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="auth-form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <button type="submit" class="auth-button-submit">Register</button>
+                <p class="auth-error-message" id="registerErrorMessage"></p>
+                <a href="#" class="auth-switch-link" id="switchToLogin">Already have an account? Login</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeProfileModal">&times;</span>
+            <h2>Your Profile</h2>
+            <div class="profile-info">
+                <p><strong>Name:</strong> <span id="profileNameDisplay"></span></p>
+                <p><strong>Email:</strong> <span id="profileEmailDisplay"></span></p>
+                <button class="auth-button-submit" id="editProfileButton" style="width:auto; padding: 10px 20px;">Edit Profile</button>
+            </div>
+
+            <form id="profileEditForm" class="profile-edit-form" style="display:none;">
+                <h3>Edit Details</h3>
+                <div class="auth-form-group">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName">
+                </div>
+                <div class="auth-form-group">
+                    <label for="editPassword">New Password (leave blank to keep current)</label>
+                    <input type="password" id="editPassword">
+                </div>
+                <button type="submit" class="auth-button-submit">Save Changes</button>
+                <p class="auth-error-message" id="profileEditErrorMessage"></p>
+            </form>
+
+            <div class="purchase-history">
+                <h3>My Purchases</h3>
+                <div id="purchasedProductsList">
+                    <p>No purchases yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
     <script src="file/script.js"></script>
     <script>
 
-</script>
+    </script>
 </body>
 </html>
