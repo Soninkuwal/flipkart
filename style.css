@@ -14,7 +14,7 @@
         background-color: var(--background-grey);
         color: var(--text-dark);
     }
-    .container { width: 95%; max-width: 1200px; margin: 0 auto; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; }
 
     /* 2. Header & Navigation */
     .top-bar {
