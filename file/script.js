@@ -1,16 +1,16 @@
     document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. CONFIG & INITIALIZATION ---
-    const firebaseConfig = {
-        // PASTE YOUR FIREBASE CONFIG OBJECT HERE
-        apiKey: "AIzaSy...YOUR_API_KEY",
-        authDomain: "your-project-id.firebaseapp.com",
-        databaseURL: "https://your-project-id-default-rtdb.firebaseio.com",
-        projectId: "your-project-id",
-        storageBucket: "your-project-id.appspot.com",
-        messagingSenderId: "your-sender-id",
-        appId: "1:your-app-id"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyCsUlYTT1r-Dp-C5K__V4qR8NdnaPdLIVU",
+            authDomain: "kanha-kuwal-tv.firebaseapp.com",
+            databaseURL: "https://kanha-kuwal-tv-default-rtdb.firebaseio.com",
+            projectId: "kanha-kuwal-tv",
+            storageBucket: "kanha-kuwal-tv.appspot.com",
+            messagingSenderId: "615871411725",
+            appId: "1:615871411725:web:0c5bf8f9841f3f52d4c744",
+            measurementId: "G-WTKPZ419SV"
+        };
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.database();
@@ -196,7 +196,7 @@
         if (!currentUser) { openAuthModal(); return; }
         const numericPrice = parseFloat(product.price.replace('₹', '').replace(/,/g, ''));
         const options = {
-            key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your actual Razorpay Key ID
+            key: 'rzp_live_xakoRhyWpzYDId', // Replace with your actual Razorpay Key ID
             amount: numericPrice * 100,
             currency: "INR",
             name: "MySite E-commerce",
