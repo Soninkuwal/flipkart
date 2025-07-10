@@ -1,12 +1,12 @@
         // Firebase Configuration - REPLACE WITH YOUR ACTUAL CONFIG
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID",
-            databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com" // Realtime Database URL
+            apiKey: "AIzaSyDZBDLtZAjrS_64gKRV66h6yHazPswMynA",
+            authDomain: "tast-4ce84.firebaseapp.com",
+            projectId: "tast-4ce84",
+            storageBucket: "tast-4ce84.firebasestorage.app",
+            messagingSenderId: "198938893717",
+            appId: "1:198938893717:web:6c37335e075b1a43e62a9c",
+            databaseURL: "https://console.firebase.google.com/u/1/project/tast-4ce84/database/tast-4ce84-default-rtdb/data/~2F" // Realtime Database URL
         };
 
         // Initialize Firebase
