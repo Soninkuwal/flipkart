@@ -141,10 +141,10 @@
             const nextImageSlide = document.getElementById('nextImageSlide');
 
             const mainBannerImages = [
-                'https://via.placeholder.com/1200x280?text=Banner+Ad+1',
-                'https://via.placeholder.com/1200x280?text=Mega+Sale+Offer',
-                'https://via.placeholder.com/1200x280?text=New+Arrivals+Collection',
-                'https://via.placeholder.com/1200x280?text=Deals+of+the+Day'
+                'https://rukminim2.flixcart.com/image/312/312/xif0q/headphone/r/p/t/-original-imagspdrzrf4razp.jpeg',
+                'https://rukminim2.flixcart.com/image/120/120/kmds4nk0/vehicle-indicator-light/c/g/9/set-of-4-bike-front-side-rear-smd-blue-led-light-indicator-turn-original-imagfatnzgzegkmg.jpeg',
+                'https://rukminim2.flixcart.com/flap/120/120/image/f1ffa6330a602013.jpeg',
+                'https://rukminim2.flixcart.com/image/120/120/kylvr0w0/shirt/u/p/t/m-1596-fs-maple-killer-original-imagasvf8qupbpuz.jpeg'
             ];
 
             let currentImageIndex = 0;
@@ -175,7 +175,7 @@
             }
 
             // Auto-slide functionality
-            let imageSliderInterval = setInterval(nextImage, 5000); // Change image every 5 seconds
+            let imageSliderInterval = setInterval(nextImage, 3000); // Change image every 5 seconds
 
             // Pause on hover
             mainImageSlider.addEventListener('mouseenter', () => clearInterval(imageSliderInterval));
@@ -201,9 +201,9 @@
             const dummyProducts = [
                 {
                     id: 'product1',
-                    image: 'https://via.placeholder.com/200x150?text=Smartphone',
-                    title: 'Latest Smartphone Model X',
-                    description: 'Powerful smartphone with amazing camera.',
+                    image: 'https://rukminim2.flixcart.com/image/120/120/xif0q/washing-machine-new/r/b/m/-original-imah2tx7cyakc7p8.jpeg',
+                    title: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam, Digital Inverter Motor Fully Automatic Front Load Washing Machine with In-built Heater Grey  (WW90DG5U24AXTL)',
+                    description: 'Bank Offer10% instant discount on HDFC Credit Card Transactions, up to ₹1,250 on orders of ₹4,990 and above',
                     price: '₹15,999',
                     rating: 4.5,
                     newSeason: 'Summer 2025 Collection',
@@ -213,7 +213,7 @@
                         'https://via.placeholder.com/600x400?text=Smartphone+View+2',
                         'https://via.placeholder.com/600x400?text=Smartphone+View+3'
                     ],
-                    timeLimit: 'Ends in 2h 30m'
+                    timeLimit: 'Ends in 1h 30m'
                 },
                 {
                     id: 'product2',
