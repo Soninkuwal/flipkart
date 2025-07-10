@@ -203,7 +203,7 @@
                     id: 'product1',
                     image: 'https://rukminim2.flixcart.com/image/120/120/xif0q/washing-machine-new/r/b/m/-original-imah2tx7cyakc7p8.jpeg',
                     title: 'Samsung 9 kg 5 Star',
-                    description: 'Bank Offer10% instant discount on HDFC Credit Card Transactions, up to ₹1,250 on orders of ₹4,990 and above',
+                    description: 'Bank Offer10% instant discount',
                     price: '₹15,999',
                     rating: 4.5,
                     newSeason: 'Summer 2025 Collection',
