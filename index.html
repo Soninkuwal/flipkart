@@ -27,6 +27,35 @@
 </style>
 </head>
 <body>
+    <!-- Top Category Image Bar -->
+    <div class="top-category-bar">
+        <div class="container">
+            <ul class="top-category-images">
+                <li><a href="electronics.html"><img src="https://via.placeholder.com/60?text=Electronics" alt="Electronics"></a></li>
+                <li><a href="fashion.html"><img src="https://via.placeholder.com/60?text=Fashion" alt="Fashion"></a></li>
+                <li><a href="home.html"><img src="https://via.placeholder.com/60?text=Home"></a></li>
+                <li><a href="appliances.html"><img src="https://via.placeholder.com/60?text=Appliances"></a></li>
+                <li><a href="beauty.html"><img src="https://via.placeholder.com/60?text=Beauty" alt="Beauty"></a></li>
+                <li><a href="grocery.html"><img src="https://via.placeholder.com/60?text=Grocery" alt="Grocery"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Top Bar Menu with Menu Button -->
+    <nav class="top-bar-menu">
+        <div class="container">
+            <button id="menuToggleBtn" class="menu-toggle-btn"><i class="fas fa-bars"></i> Menu</button>
+            <ul id="topBarMenuList" class="top-bar-menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="fashion.html">Fashion</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="offers.html">Hot Offers</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header class="top-bar">
         <div class="container">
             <div class="logo">
@@ -184,6 +213,46 @@
         </div>
     </div>
 
+    <!-- Cart Modal with styled delivery address fields -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-button" id="closeCartModal">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartProductsList"></div>
+            <form id="checkoutForm">
+                <h3>Delivery Address</h3>
+                <div class="cart-form-group">
+                    <label for="checkoutName">Name</label>
+                    <input type="text" id="checkoutName" required>
+                </div>
+                <div class="cart-form-group">
+                    <label for="checkoutMobile">Mobile No.</label>
+                    <input type="tel" id="checkoutMobile" required pattern="[0-9]{10}">
+                </div>
+                <div class="cart-form-group">
+                    <label for="checkoutEmail">Email ID</label>
+                    <input type="email" id="checkoutEmail" required>
+                </div>
+                <div class="cart-form-group">
+                    <label for="checkoutAddress">Home Address</label>
+                    <textarea id="checkoutAddress" rows="2" required style="resize:vertical;"></textarea>
+                </div>
+                <button type="submit" class="cart-button-submit">Checkout</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 My E-commerce Site. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -191,7 +260,14 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="file/script.js"></script>
     <script>
-
+    // Menu button logic for top bar menu
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('menuToggleBtn');
+        const menuList = document.getElementById('topBarMenuList');
+        menuBtn.addEventListener('click', function() {
+            menuList.classList.toggle('open');
+        });
+    });
     </script>
 </body>
 </html>
