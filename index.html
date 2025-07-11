@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-commerce Site - Shop Online for Electronics, Fashion, Home & More | Like Flipkart</title>
+    <title>My flipkart Site - Shop Online for Electronics, Fashion, Home & More | Like Flipkart</title>
 
-    <meta name="description" content="Shop online at My E-commerce Site for a wide range of products including electronics, fashion, home goods, appliances, and groceries. Discover hot deals, new arrivals, and exclusive offers. Best prices in India.">
-    <meta name="keywords" content="e-commerce, online shopping, buy electronics, fashion online, home appliances, best deals, daily offers, new arrivals, groceries online, India shopping, MySite, discount, sale">
-    <meta name="author" content="Your E-commerce Company Name">
+    <meta name="description" content="Shop online at My flipkart Site for a wide range of products including electronics, fashion, home goods, appliances, and groceries. Discover hot deals, new arrivals, and exclusive offers. Best prices in India.">
+    <meta name="keywords" content="flipkart, online shopping, buy electronics, fashion online, home appliances, best deals, daily offers, new arrivals, groceries online, India shopping, MySite, discount, sale">
+    <meta name="author" content="Your flipkart Company Name">
     <link rel="canonical" href="https://www.yourecommerce.com/">
-    <meta property="og:title" content="My E-commerce Site - Shop Online for Electronics, Fashion, Home & More">
+    <meta property="og:title" content="My flipkart Site - Shop Online for Electronics, Fashion, Home & More">
     <meta property="og:description" content="Discover incredible deals on a vast selection of products. Your one-stop shop for all needs.">
     <meta property="og:image" content="https://www.yourecommerce.com/images/og-image.jpg">
     <meta property="og:url" content="https://www.yourecommerce.com/">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="My E-commerce Site - Shop Online for Electronics, Fashion, Home & More">
+    <meta name="twitter:title" content="My flipkart Site - Shop Online for Electronics, Fashion, Home & More">
     <meta name="twitter:description" content="Discover incredible deals on a vast selection of products. Your one-stop shop for all needs.">
     <meta name="twitter:image" content="https://www.yourecommerce.com/images/twitter-image.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,27 +27,11 @@
 </style>
 </head>
 <body>
-
-
-    <!-- Top Bar Menu with Menu Button -->
-    <nav class="top-bar-menu">
-        <div class="container">
-            <button id="menuToggleBtn" class="menu-toggle-btn"><i class="fas fa-bars"></i> Menu</button>
-            <ul id="topBarMenuList" class="top-bar-menu-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="electronics.html">Electronics</a></li>
-                <li><a href="fashion.html">Fashion</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="offers.html">Hot Offers</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    
     <header class="top-bar">
         <div class="container">
             <div class="logo">
-                <img src="https://rukminim2.flixcart.com/image/120/120/kl5hh8w0/puzzle/g/n/g/60-wooden-earth-jigsaw-puzzle-60-pcs-webby-original-imagyc8hsdztzdzb.jpeg?q=80" alt="Company Logo">
+                <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" alt="Company Logo">
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
@@ -55,11 +39,30 @@
             </div>
             <nav class="main-nav">
                 <ul id="mainNavItems">
-                    <li id="loginMenuItem"><button class="auth-button" id="loginButton">Login</button></li>
-                    <li id="registerMenuItem"><button class="auth-button" id="registerButton">Register</button></li>
-                    <li id="profileMenuItem" style="display: none;"><button class="auth-button" id="profileButton"><i class="fas fa-user-circle"></i> Profile</button></li>
-                    <li id="logoutMenuItem" style="display: none;"><button class="auth-button" id="logoutButton">Logout</button></li>
-                    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a></li>
+                    <li class="dropdown" id="loginMenuItem">
+                        <button class="auth-button" id="loginButton"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <ul class="submenu">
+                            <li><a href="#">Login with Email</a></li>
+                            <li><a href="#">Login with OTP</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="registerMenuItem">
+                        <button class="auth-button" id="registerButton"><i class="fas fa-user-plus"></i> Register</button>
+                        <ul class="submenu">
+                            <li><a href="#">Register with Email</a></li>
+                            <li><a href="#">Register with Mobile</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="profileMenuItem" style="display: none;">
+                        <button class="auth-button" id="profileButton"><i class="fas fa-user-circle"></i> Profile</button>
+                        <ul class="submenu">
+                            <li><a href="#">My Orders</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li id="logoutMenuItem" style="display: none;"><button class="auth-button" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+                    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>Card</li>
                 </ul>
             </nav>
         </div>
@@ -68,12 +71,59 @@
     <nav class="category-menu">
         <div class="container">
             <ul>
-                <li><a href="#"><img src="https://via.placeholder.com/60?text=Electronics" alt="Electronics">Electronics</a></li>
-                <li><a href="#"><img src="https://via.placeholder.com/60?text=Electronics" alt="Fashion">Fashion</a></li>
-                <li><a href="#"><img src="https://via.placeholder.com/60?text=Furniture" alt="Furniture">Home & Furniture</a></li>
-                <li><a href="#"><img src="https://via.placeholder.com/60?text=Appliances" alt="Appliances">Appliances</a></li>
-                <li><a href="#"><img src="https://via.placeholder.com/60?text=Beauty" alt="Beauty">Beauty, Toys & More</a></li>
-                <li><a href="#"><img src="https://via.placeholder.com/60?text=Grocery" alt="Grocery">Grocery</a></li>
+                <li class="dropdown">
+                   <a href="#" class="nav-item active"> <img src="https://rukminim1.flixcart.com/flap/64/64/image/69c6589653afdb9a.png?q=100" alt="Electronics" class="nav-icon"> <span class="nav-text">Electronics</span></a>
+                    <ul class="submenu">
+                        <li class="dropdown">
+                            <a href="mobiles.html">Mobiles</a>
+                            <ul class="submenu">
+                                <li><a href="android.html">Android</a></li>
+                                <li><a href="ios.html">iOS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="laptops.html">Laptops</a></li>
+                        <li><a href="audio.html">Audio</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-item"> <img src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/0d75b34f7d8fbcb3.png?q=100" alt="Fashion" class="nav-icon"> <span class="nav-text">Fashion</span></a>
+                    <ul class="submenu">
+                        <li><a href="men.html">Men</a></li>
+                        <li><a href="women.html">Women</a></li>
+                        <li><a href="kids.html">Kids</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-item"> <img src="https://rukminim1.flixcart.com/flap/64/64/image/ab7e2b022a4587dd.jpg?q=100" alt="Furniture" class="nav-icon"> <span class="nav-text">Home & Furniture</span></a>
+                    <ul class="submenu">
+                        <li><a href="sofa.html">Sofa</a></li>
+                        <li><a href="bed.html">Bed</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-item"> <img src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/0139228b2f7eb413.jpg?q=100" alt="Appliances" class="nav-icon"> <span class="nav-text">Appliances</span></a>
+                    <ul class="submenu">
+                        <li><a href="refrigerators.html">Refrigerators</a></li>
+                        <li><a href="washing-machines.html">Washing Machines</a></li>
+                        <li><a href="air-conditioners.html">Air Conditioners</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-item"> <img src="https://rukminim1.flixcart.com/flap/64/64/image/29327f40e9c4d26b.png?q=100" alt="Grocery" class="nav-icon"> <span class="nav-text">Grocery</span></a>
+                    <ul class="submenu">
+                        <li><a href="fruits.html">Fruits</a></li>
+                        <li><a href="vegetables.html">Vegetables</a></li>
+                        <li><a href="snacks.html">Snacks</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-item"> <img src="https://rukminim1.flixcart.com/flap/64/64/image/dff3f7adcf3a90c6.png?q=100" alt="Beauty" class="nav-icon"> <span class="nav-text">Beauty, Toys & More</span></a>
+                    <ul class="submenu">
+                        <li><a href="makeup.html">Makeup</a></li>
+                        <li><a href="toys.html">Toys</a></li>
+                        <li><a href="skincare.html">Skincare</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
@@ -82,6 +132,10 @@
         <section class="image-slider-section">
             <div class="container">
                 <div class="image-slider" id="mainImageSlider">
+                    <a href="Plus.html"><img src="https://rukminim2.flixcart.com/image/312/312/xif0q/headphone/r/p/t/-original-imagspdrzrf4razp.jpeg" alt="Electronics"></a>
+                    <a href="mobiles.html"><img src="https://rukminim2.flixcart.com/image/120/120/kmds4nk0/vehicle-indicator-light/c/g/9/set-of-4-bike-front-side-rear-smd-blue-led-light-indicator-turn-original-imagfatnzgzegkmg.jpeg" alt="Mobiles"></a>
+                    <a href="fashion.html"><img src="https://rukminim2.flixcart.com/flap/120/120/image/f1ffa6330a602013.jpeg" alt="Fashion"></a>
+                    <a href="laptops.html"><img src="https://rukminim2.flixcart.com/image/120/120/kylvr0w0/shirt/u/p/t/m-1596-fs-maple-killer-original-imagasvf8qupbpuz.jpeg" alt="Laptops"></a>
                 </div>
                 <div class="slider-nav">
                     <button class="prev-slide" id="prevImageSlide">&#10094;</button>
@@ -95,6 +149,7 @@
             <div class="container">
                 <h2>Still Looking For These?</h2>
                 <div class="content-slider" id="stillLookingSlider">
+                    <!-- JS will populate cards with category labels -->
                 </div>
                 <div class="slider-nav">
                     <button class="prev-slide" id="prevStillLookingSlide">&#10094;</button>
@@ -103,10 +158,24 @@
             </div>
         </section>
 
+        <section class="best-electronics-section">
+            <div class="container">
+                <h2>Best for Electronics</h2>
+                <div class="content-slider" id="bestElectronicsSlider">
+                    <!-- Auto-populated by JS -->
+                </div>
+                <div class="slider-nav">
+                    <button class="prev-slide" id="prevBestElectronicsSlide">&#10094;</button>
+                    <button class="next-slide" id="nextBestElectronicsSlide">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
         <section class="content-slider-section">
             <div class="container">
                 <h2>Suggested For You</h2>
                 <div class="content-slider" id="suggestedForYouSlider">
+                    <!-- JS will populate cards with category labels -->
                 </div>
                 <div class="slider-nav">
                     <button class="prev-slide" id="prevSuggestedSlide">&#10094;</button>
@@ -235,20 +304,69 @@
     <!-- Footer Section -->
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 My E-commerce Site. All rights reserved.</p>
-            <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
+
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press.html">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Categories</h4>
+                    <ul>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="fashion.html">Fashion</a></li>
+                        <li><a href="home.html">Home & Furniture</a></li>
+                        <li><a href="grocery.html">Grocery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul class="footer-social">
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-main">
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="returns.html">Returns & Refunds</a></li>
+                    <li><a href="shipping.html">Shipping Info</a></li>
+                </ul>
+                <p>&copy; <span id="currentYear"></span> My flipkart Site. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+<script>
+    // ...existing code...
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="file/script.js"></script>
+    <script src="script.js"></script>
     <script>
     // Menu button logic for top bar menu
     document.addEventListener('DOMContentLoaded', function() {
