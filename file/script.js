@@ -6,7 +6,7 @@
             storageBucket: "tast-4ce84.firebasestorage.app",
             messagingSenderId: "198938893717",
             appId: "1:198938893717:web:6c37335e075b1a43e62a9c",
-            databaseURL: "" // Realtime Database URL
+            databaseURL: "https://tast-4ce84-default-rtdb.firebaseio.com" // Realtime Database URL
         };
 
         // Initialize Firebase
