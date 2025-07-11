@@ -21,12 +21,12 @@
         background-color: var(--primary-blue);
         color: var(--white);
         padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgb(252, 2, 2);
         position: sticky; top: 0; z-index: 100;
     }
     .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo img { height: 40px; margin-left: 60px;}
-    .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: 200px; }
+    .logo img { height: 40px; margin-left: 60px; background-color: #ddd;}
+    .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: 400px; }
     .search-bar input {
         width: 100%; padding: 10px 15px; border: none;
         border-radius: 2px 0 0 2px; font-size: 16px; outline: none;
@@ -56,6 +56,47 @@
     .category-menu ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-around; }
     .category-menu a { text-decoration: none; color: red; font-weight: 500; padding: 10px 15px; }
     .category-menu a:hover { color: yellow; }
+
+    /* Style for the main navigation container */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Style for each navigation item (link) */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333333;
+  font-weight: 500;
+  padding: 5px 15px;
+}
+
+/* Style for the navigation icons */
+.nav-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+}
+
+/* Style for the navigation text */
+.nav-text {
+  font-size: 12px;
+}
+
+/* Style for the active navigation item */
+.nav-item.active {
+  color: red;
+}
 
     /* 3. Sliders & Content Sections */
     section { margin-top: 20px; background-color: var(--white); padding: 20px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.1); position: relative; }
@@ -349,7 +390,7 @@
     background: #eee;
 }
 .top-category-images::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: #eeecec;
     border-radius: 4px;
 }
 
@@ -405,25 +446,95 @@
 .site-footer {
     background: #212121;
     color: #fff;
-    padding: 30px 0 10px 0;
+    padding: 40px 0 10px 0;
     text-align: center;
     margin-top: 40px;
 }
-.site-footer ul {
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-main {
+    margin-bottom: 20px;
+}
+.footer-links {
     list-style: none;
     padding: 0;
     margin: 10px 0 0 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
-.site-footer a {
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.footer-links li a:hover {
+    color: #ff9f00;
+    text-decoration: underline;
+}
+.footer-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    text-align: left;
+}
+.footer-section {
+    flex: 1 1 180px;
+    min-width: 180px;
+    margin-bottom: 20px;
+}
+.footer-section h4 {
+    color: #ff9f00;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+.footer-section ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 14px;
+    transition: color 0.2s;
 }
-.site-footer a:hover {
+.footer-section ul li a:hover {
+    color: #2874f0;
     text-decoration: underline;
+}
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.footer-social i {
+    margin-right: 8px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+    .footer-sections {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-section {
+        margin-bottom: 25px;
+    }
 }
 
 /* Cart Modal Styles */
@@ -523,6 +634,57 @@
     color: green;
     margin-bottom: 10px;
 }
+
+/* Dropdown & Submenu Styles */
+.dropdown {
+    position: relative;
+}
+.dropdown > a, .dropdown > button {
+    position: relative;
+    z-index: 2;
+}
+.dropdown .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 160px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 4px;
+    padding: 8px 0;
+    z-index: 10;
+}
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu {
+    display: block;
+}
+.submenu li {
+    padding: 0;
+}
+.submenu a {
+    display: block;
+    padding: 10px 18px;
+    color: #2874f0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+}
+.submenu a:hover {
+    background: #f1f3f6;
+    color: #fb641b;
+}
+.main-nav .dropdown .submenu {
+    left: auto;
+    right: 0;
+    top: 100%;
+}
+.category-menu .dropdown .submenu {
+    left: 0;
+    top: 100%;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
