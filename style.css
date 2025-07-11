@@ -328,7 +328,7 @@
 
 
 /* Responsive adjustments */
-@media (max-width: 100%) {
+@media (max-width: auto) {
     .top-bar .container {
         flex-direction: column;
         text-align: center;
@@ -371,7 +371,7 @@
     }
 }
 
-@media (max-width: 100%) {
+@media (max-width: auto) {
     .main-nav button.auth-button,
     .main-nav button.apk-button {
         padding: 8px 10px;
