@@ -27,19 +27,7 @@
 </style>
 </head>
 <body>
-    <!-- Top Category Image Bar -->
-    <div class="top-category-bar">
-        <div class="container">
-            <ul class="top-category-images">
-                <li><a href="electronics.html"><img src="https://via.placeholder.com/60?text=Electronics" alt="Electronics"></a></li>
-                <li><a href="fashion.html"><img src="https://via.placeholder.com/60?text=Fashion" alt="Fashion"></a></li>
-                <li><a href="home.html"><img src="https://via.placeholder.com/60?text=Home"></a></li>
-                <li><a href="appliances.html"><img src="https://via.placeholder.com/60?text=Appliances"></a></li>
-                <li><a href="beauty.html"><img src="https://via.placeholder.com/60?text=Beauty" alt="Beauty"></a></li>
-                <li><a href="grocery.html"><img src="https://via.placeholder.com/60?text=Grocery" alt="Grocery"></a></li>
-            </ul>
-        </div>
-    </div>
+
 
     <!-- Top Bar Menu with Menu Button -->
     <nav class="top-bar-menu">
@@ -59,7 +47,7 @@
     <header class="top-bar">
         <div class="container">
             <div class="logo">
-                <img src="https://via.placeholder.com/100x40?text=MyLogo" alt="Company Logo">
+                <img src="https://rukminim2.flixcart.com/image/120/120/kl5hh8w0/puzzle/g/n/g/60-wooden-earth-jigsaw-puzzle-60-pcs-webby-original-imagyc8hsdztzdzb.jpeg?q=80" alt="Company Logo">
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
@@ -80,12 +68,12 @@
     <nav class="category-menu">
         <div class="container">
             <ul>
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Home & Furniture</a></li>
-                <li><a href="#">Appliances</a></li>
-                <li><a href="#">Beauty, Toys & More</a></li>
-                <li><a href="#">Grocery</a></li>
+                <li><a href="#"><img src="https://via.placeholder.com/60?text=Electronics" alt="Electronics">Electronics</a></li>
+                <li><a href="#"><img src="https://via.placeholder.com/60?text=Electronics" alt="Fashion">Fashion</a></li>
+                <li><a href="#"><img src="https://via.placeholder.com/60?text=Furniture" alt="Furniture">Home & Furniture</a></li>
+                <li><a href="#"><img src="https://via.placeholder.com/60?text=Appliances" alt="Appliances">Appliances</a></li>
+                <li><a href="#"><img src="https://via.placeholder.com/60?text=Beauty" alt="Beauty">Beauty, Toys & More</a></li>
+                <li><a href="#"><img src="https://via.placeholder.com/60?text=Grocery" alt="Grocery">Grocery</a></li>
             </ul>
         </div>
     </nav>
@@ -237,7 +225,9 @@
                     <label for="checkoutAddress">Home Address</label>
                     <textarea id="checkoutAddress" rows="2" required style="resize:vertical;"></textarea>
                 </div>
+                <button type="button" class="cart-button-save" id="saveAddressBtn">Save Address</button>
                 <button type="submit" class="cart-button-submit">Checkout</button>
+                <div id="addressSaveStatus" class="address-save-status"></div>
             </form>
         </div>
     </div>
