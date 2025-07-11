@@ -26,7 +26,7 @@
     }
     .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
     .logo img { height: 40px; }
-    .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: auto; }
+    .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: 200px; }
     .search-bar input {
         width: 100%; padding: 10px 15px; border: none;
         border-radius: 2px 0 0 2px; font-size: 16px; outline: none;
