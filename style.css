@@ -25,7 +25,7 @@
         position: sticky; top: 0; z-index: 100;
     }
     .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo img { height: 40px; }
+    .logo img { height: 40px; margin-left: 60px;}
     .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: 200px; }
     .search-bar input {
         width: 100%; padding: 10px 15px; border: none;
@@ -36,7 +36,7 @@
         cursor: pointer; color: var(--primary-blue); font-size: 16px;
     }
     .main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
-    .main-nav li { margin-left: 20px; }
+    .main-nav li { margin-right: 60px; }
     .main-nav button {
         color: var(--primary-blue); background-color: var(--white); text-decoration: none;
         font-weight: 600; font-size: 16px; padding: 8px 25px;
@@ -44,7 +44,7 @@
     }
     .main-nav .apk-button { background: none; color: var(--white); padding: 8px 15px; font-weight: 500; }
     .main-nav .user-info { font-weight: 500; padding-right: 10px; }
-    .cart-icon {
+    .cart-icon { margin-right: 70px;
         color: var(--white); text-decoration: none; font-size: 18px;
         position: relative; display: flex; align-items: center;
     }
@@ -52,10 +52,10 @@
         background-color: red; border-radius: 50%; padding: 2px 6px;
         font-size: 12px; position: absolute; top: -8px; right: -12px;
     }
-    .category-menu { background-color: var(--white); padding: 10px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .category-menu { background-color: pink; padding: 10px 0; box-shadow: 0 2px 4px rgba(85, 224, 30, 0.986); }
     .category-menu ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-around; }
-    .category-menu a { text-decoration: none; color: var(--text-dark); font-weight: 500; padding: 10px 15px; }
-    .category-menu a:hover { color: var(--primary-blue); }
+    .category-menu a { text-decoration: none; color: red; font-weight: 500; padding: 10px 15px; }
+    .category-menu a:hover { color: yellow; }
 
     /* 3. Sliders & Content Sections */
     section { margin-top: 20px; background-color: var(--white); padding: 20px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.1); position: relative; }
@@ -331,6 +331,7 @@
     background: #fff;
     border-bottom: 1px solid #eee;
     padding: 10px 0;
+    overflow-x: auto;
 }
 .top-category-images {
     display: flex;
@@ -338,17 +339,18 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 }
-.top-category-images li img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #eee;
-    transition: border-color 0.2s;
+.top-category-images::-webkit-scrollbar {
+    height: 8px;
+    background: #eee;
 }
-.top-category-images li img:hover {
-    border-color: var(--primary-blue);
+.top-category-images::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
 }
 
 /* Top Bar Menu */
@@ -362,6 +364,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left: 20px;
 }
 .menu-toggle-btn {
     background: #fff;
@@ -372,31 +375,30 @@
     padding: 8px 18px;
     border-radius: 4px;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 .top-bar-menu-list {
+    background-color: aqua;
     display: none;
     flex-direction: row;
     gap: 30px;
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 }
 .top-bar-menu-list.open {
     display: flex;
 }
-.top-bar-menu-list li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    background: #2874f0;
-    padding: 8px 16px;
-    border-radius: 2px;
-    transition: background 0.2s;
+.top-bar-menu-list::-webkit-scrollbar {
+    height: 8px;
+    background: #eee;
 }
-.top-bar-menu-list li a:hover {
-    background: #1a5bb2;
+.top-bar-menu-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
 }
 
 /* Footer Styles */
@@ -498,6 +500,28 @@
     font-weight: bold;
     color: #2874f0;
     margin-top: 3px;
+}
+.cart-button-save {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9f00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+.cart-button-save:hover {
+    background-color: #e68a00;
+}
+.address-save-status {
+    text-align: center;
+    font-size: 1em;
+    color: green;
+    margin-bottom: 10px;
 }
 
 /* Responsive adjustments */
