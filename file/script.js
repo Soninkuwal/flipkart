@@ -1,4 +1,4 @@
-        // Firebase Configuration - REPLACE WITH YOUR ACTUAL CONFIG
+// Firebase Configuration - REPLACE WITH YOUR ACTUAL CONFIG
         const firebaseConfig = {
             apiKey: "AIzaSyDZBDLtZAjrS_64gKRV66h6yHazPswMynA",
             authDomain: "tast-4ce84.firebaseapp.com",
@@ -683,4 +683,92 @@
                     console.log('User logged out.');
                 }
             });
+
+
+        // --- Cart Modal Functionality ---
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModal = document.getElementById('closeCartModal');
+        const cartProductsList = document.getElementById('cartProductsList');
+        const checkoutForm = document.getElementById('checkoutForm');
+        // Editable address fields
+        const checkoutName = document.getElementById('checkoutName');
+        const checkoutMobile = document.getElementById('checkoutMobile');
+        const checkoutEmail = document.getElementById('checkoutEmail');
+        const checkoutAddress = document.getElementById('checkoutAddress');
+        let cartProducts = [];
+
+        // Show cart modal when cart icon is clicked
+        document.querySelector('.cart-icon').addEventListener('click', (e) => {
+            e.preventDefault();
+            displayCartProducts();
+            // Autofill user info if logged in
+            if (auth.currentUser) {
+                checkoutName.value = auth.currentUser.displayName || '';
+                checkoutEmail.value = auth.currentUser.email || '';
+            } else {
+                checkoutName.value = '';
+                checkoutEmail.value = '';
+            }
+            checkoutMobile.value = '';
+            checkoutAddress.value = '';
+            cartModal.style.display = 'flex';
+        });
+
+        closeCartModal.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
+        function displayCartProducts() {
+            if (cartProducts.length === 0) {
+                cartProductsList.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cartProductsList.innerHTML = '';
+                cartProducts.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'purchase-item';
+                    div.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="purchase-item-details">
+                            <h4>${item.title}</h4>
+                            <p class="price">${item.price}</p>
+                        </div>
+                    `;
+                    cartProductsList.appendChild(div);
+                });
+            }
+        }
+
+        // Add to cart logic (update to push product to cartProducts array)
+        function addToCart(product) {
+            cartProducts.push(product);
+            cartItemCount = cartProducts.length;
+            updateCartCount();
+        }
+
+        // Checkout form submit (uses editable address fields)
+        checkoutForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = checkoutName.value.trim();
+            const mobile = checkoutMobile.value.trim();
+            const email = checkoutEmail.value.trim();
+            const address = checkoutAddress.value.trim();
+            if (!name || !mobile || !email || !address) {
+                alert('Please fill all delivery address fields.');
+                return;
+            }
+            alert(
+                `Order placed!\nName: ${name}\nMobile: ${mobile}\nEmail: ${email}\nAddress: ${address}`
+            );
+            cartProducts = [];
+            updateCartCount();
+            cartModal.style.display = 'none';
+        });
+
+        // Simulate IP address change every second (demo only)
+        setInterval(() => {
+            window.currentFakeIP = '192.0.2.' + Math.floor(Math.random() * 255);
+            window.US_IP_PROTOCOL = true;
+            // Optionally, display currentFakeIP somewhere in the UI
+        }, 1000);
+
         });
