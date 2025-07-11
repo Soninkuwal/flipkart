@@ -327,15 +327,8 @@
 }
 
 
-    @media (max-width: 768px) {
-      /* Styles for screens smaller than 768px (e.g., tablets) */
-      .container {
-        flex-direction: column;
-      }
-    }
-
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 100%) {
     .top-bar .container {
         flex-direction: column;
         text-align: center;
@@ -378,7 +371,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
     .main-nav button.auth-button,
     .main-nav button.apk-button {
         padding: 8px 10px;
