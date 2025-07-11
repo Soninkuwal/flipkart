@@ -206,6 +206,7 @@
                     description: 'Bank Offer10% instant discount',
                     price: '₹15,999',
                     rating: 4.5,
+                    Category: 'Electronics',
                     newSeason: 'Summer 2025 Collection',
                     detailedDescription: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam, Digital Inverter Motor Fully Automatic Front Load Washing Machine with In-built Heater Grey  (WW90DG5U24AXTL)',
                     additionalImages: [
@@ -222,6 +223,7 @@
                     description: 'Immersive sound, comfortable fit.',
                     price: '₹2,499',
                     rating: 4.2,
+                    Category: 'Electronics',
                     newSeason: 'Audio Gear Focus',
                     detailedDescription: 'Escape into your music with these premium noise-cancelling headphones. Ergonomically designed for long-listening comfort, they deliver rich, clear audio with deep bass. Features include touch controls, 30-hour battery life, and a foldable design for portability.',
                     additionalImages: [
@@ -237,6 +239,7 @@
                     description: 'Track your health and stay connected.',
                     price: '₹3,999',
                     rating: 4.0,
+                    Category: 'Electronics',
                     newSeason: 'Fitness Tech',
                     detailedDescription: 'Monitor your health and fitness goals with this advanced smartwatch. It tracks heart rate, steps, sleep, and features multiple sports modes. Receive notifications, control music, and make calls directly from your wrist. Water-resistant design.',
                     additionalImages: [
@@ -252,6 +255,7 @@
                     description: 'Lightweight and powerful for productivity.',
                     price: '₹45,000',
                     rating: 4.7,
+                    Category: 'Electronics',
                     newSeason: 'Back to Work Essentials',
                     detailedDescription: 'Boost your productivity with this ultra-thin and lightweight 14-inch laptop. Equipped with the latest processor, ample RAM, and a fast SSD, it handles multitasking with ease. Features a backlit keyboard and a high-resolution display.',
                     additionalImages: [
@@ -267,6 +271,7 @@
                     description: 'Comfortable and stylish denim.',
                     price: '₹1,299',
                     rating: 3.8,
+                    Category: 'Fashion',
                     newSeason: 'Casual Wear',
                     detailedDescription: 'Upgrade your wardrobe with these versatile slim-fit jeans. Made from high-quality denim with a hint of stretch for ultimate comfort and flexibility. Perfect for everyday wear, pair them with a t-shirt or a casual shirt.',
                     additionalImages: [
@@ -282,6 +287,7 @@
                     description: 'Brew perfect coffee every morning.',
                     price: '₹3,500',
                     rating: 4.3,
+                    Category: 'Kitchen Appliances',
                     newSeason: 'Kitchen Appliances',
                     detailedDescription: 'Start your day right with freshly brewed coffee from this automatic coffee maker. Features a programmable timer, large water reservoir, and a keep-warm function. Easy to clean and brews up to 12 cups.',
                     additionalImages: [
@@ -298,6 +304,9 @@
                 card.dataset.productId = product.id; // Store product ID for detail view
 
                 card.innerHTML = `
+                    <span class="category-label" style="position:absolute;top:8px;left:8px;background:#2874f0;color:#fff;font-size:12px;padding:2px 8px;border-radius:12px;font-weight:600;z-index:2;">
+                        ${product.Category || 'Product'}
+                    </span>
                     <img src="${product.image}" alt="${product.title}">
                     <h3>${product.title}</h3>
                     <p>${product.description}</p>
@@ -319,6 +328,11 @@
             // Populate "Still Looking For These?"
             const stillLookingSlider = document.getElementById('stillLookingSlider');
             populateSlider(stillLookingSlider, dummyProducts.slice(0, 4)); // Show first 4 for this section
+
+            // Populate "Best for Electronics"
+            const bestElectronicsSlider = document.getElementById('bestElectronicsSlider');
+            // Randomize or pick different products for suggested
+            populateSlider(bestElectronicsSlider, dummyProducts.slice(0, 4));
 
             // Populate "Suggested For You"
             const suggestedForYouSlider = document.getElementById('suggestedForYouSlider');
@@ -809,5 +823,70 @@
             window.US_IP_PROTOCOL = true;
             // Optionally, display currentFakeIP somewhere in the UI
         }, 1000);
+
+
+            // --- Best for Electronics Section ---
+//            const bestElectronicsSlider = document.getElementById('bestElectronicsSlider');
+//            const prevBestElectronicsSlide = document.getElementById('prevBestElectronicsSlide');
+//            const nextBestElectronicsSlide = document.getElementById('nextBestElectronicsSlide');
+
+            // Filter electronics products (example: by title or category)
+//            const electronicsProducts = dummyProducts.filter(p =>
+//                p.Category && p.Category.toLowerCase().includes('electronics')
+//            );
+
+//            function getCategoryLabel(product) {
+//                return product.Category || 'Electronics';
+//            }
+
+//            function createElectronicsCard(product) {
+//                const card = document.createElement('div');
+//                card.classList.add('content-card');
+//                card.innerHTML = `
+//                    <span class="category-label">${getCategoryLabel(product)}</span>
+//                    <div class="slider-images">
+//                        ${product.additionalImages.map((img, i) =>
+//                            `<img src="${img}" alt="img${i}" onclick="this.parentNode.parentNode.querySelector('.main-img').src='${img}'">`
+//                        ).join('')}
+//                    </div>
+//                    <img class="main-img" src="${product.image}" alt="${product.title}" style="width:100%;height:120px;object-fit:contain;border-radius:6px;">
+//                    <h3 class="card-title" style="cursor:pointer;">${product.title}</h3>
+//                    <div class="new-season">${product.newSeason}</div>
+//                    <div class="short-description">${product.detailedDescription.substring(0, 60)}...</div>
+//                    <div class="price">${product.price}</div>
+//                `;
+                // Clickable post/image/title
+//                card.querySelector('.main-img').addEventListener('click', () => showElectronicsModal(product));
+//                card.querySelector('.card-title').addEventListener('click', () => showElectronicsModal(product));
+//                card.addEventListener('click', (e) => {
+//                    if (e.target.classList.contains('main-img') || e.target.classList.contains('card-title')) return;
+//                    showElectronicsModal(product);
+//                });
+//                return card;
+//            }
+
+//            function populateBestElectronicsSlider() {
+//                bestElectronicsSlider.innerHTML = '';
+//                electronicsProducts.forEach(product => {
+//                    bestElectronicsSlider.appendChild(createElectronicsCard(product));
+//                });
+//            }
+//            populateBestElectronicsSlider();
+
+//            function setupBestElectronicsSlider() {
+//                const scrollAmount = 260;
+//                prevBestElectronicsSlide.addEventListener('click', () => {
+//                    bestElectronicsSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+//                });
+//                nextBestElectronicsSlide.addEventListener('click', () => {
+//                    bestElectronicsSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+//                });
+//            }
+//            setupBestElectronicsSlider();
+
+//            function showElectronicsModal(product) {
+//                renderProductDetail(product);
+//                document.getElementById('productDetailModal').style.display = 'flex';
+//            }
 
         });
