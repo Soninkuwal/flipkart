@@ -695,6 +695,8 @@
         const checkoutMobile = document.getElementById('checkoutMobile');
         const checkoutEmail = document.getElementById('checkoutEmail');
         const checkoutAddress = document.getElementById('checkoutAddress');
+        const saveAddressBtn = document.getElementById('saveAddressBtn');
+        const addressSaveStatus = document.getElementById('addressSaveStatus');
         let cartProducts = [];
 
         // Show cart modal when cart icon is clicked
@@ -745,7 +747,43 @@
             updateCartCount();
         }
 
-        // Checkout form submit (uses editable address fields)
+        // Autofill delivery address from localStorage if available
+        function autofillAddressFields() {
+            const saved = JSON.parse(localStorage.getItem('userDeliveryAddress') || '{}');
+            if (saved.name) checkoutName.value = saved.name;
+            if (saved.mobile) checkoutMobile.value = saved.mobile;
+            if (saved.email) checkoutEmail.value = saved.email;
+            if (saved.address) checkoutAddress.value = saved.address;
+        }
+
+        // Show cart modal when cart icon is clicked
+        document.querySelector('.cart-icon').addEventListener('click', (e) => {
+            e.preventDefault();
+            displayCartProducts();
+            autofillAddressFields();
+            cartModal.style.display = 'flex';
+            addressSaveStatus.textContent = '';
+        });
+
+        // Save address button logic (permanent save in localStorage)
+        saveAddressBtn.addEventListener('click', () => {
+            const name = checkoutName.value.trim();
+            const mobile = checkoutMobile.value.trim();
+            const email = checkoutEmail.value.trim();
+            const address = checkoutAddress.value.trim();
+            if (!name || !mobile || !email || !address) {
+                addressSaveStatus.textContent = 'Please fill all fields before saving.';
+                addressSaveStatus.style.color = 'red';
+                return;
+            }
+            localStorage.setItem('userDeliveryAddress', JSON.stringify({
+                name, mobile, email, address
+            }));
+            addressSaveStatus.textContent = 'Address saved permanently!';
+            addressSaveStatus.style.color = 'green';
+        });
+
+        // Checkout form submit (redirect to order post section/page)
         checkoutForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = checkoutName.value.trim();
@@ -756,12 +794,13 @@
                 alert('Please fill all delivery address fields.');
                 return;
             }
-            alert(
-                `Order placed!\nName: ${name}\nMobile: ${mobile}\nEmail: ${email}\nAddress: ${address}`
-            );
+            localStorage.setItem('userDeliveryAddress', JSON.stringify({
+                name, mobile, email, address
+            }));
             cartProducts = [];
             updateCartCount();
             cartModal.style.display = 'none';
+            window.location.href = 'order-post.html'; // Redirect to order post section/page
         });
 
         // Simulate IP address change every second (demo only)
