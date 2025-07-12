@@ -18,21 +18,21 @@
 
     /* 2. Header & Navigation */
     .top-bar {
-        background-color: #dcdfe6; /*background-color: var(--primary-blue);*/
+        background-color: #ffffff; /*background-color: var(--primary-blue);*/
         color: var(--white);
         padding: 10px 0;
         box-shadow: 0 2px 4px rgb(252, 2, 2);
         position: sticky; top: 0; z-index: 100;
     }
     .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo img { height: 40px; margin-left: auto; background-color: #ddd;}
-    .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: 400px; }
+    .logo img { height: 40px; margin-left: auto; background-color: #ffffff;}
+    .search-bar { display: flex; flex-grow: 1; margin: 0 20px; max-width: auto; }
     .search-bar input {
-        width: 100%; padding: 10px 15px; border: none;
-        border-radius: 2px 0 0 2px; font-size: 16px; outline: none;
+        width: 100%; padding: 10px 15px; border: none; background-color: rgb(230, 227, 227);
+        border-radius: 0 0 10px; font-size: 16px; outline: none;
     }
     .search-bar button {
-        background-color: var(--white); border: none; padding: 0 15px;
+        background-color: rgb(230, 227, 227); border: none; padding: 0 15px; border-radius: 10px 0 0 10px;
         cursor: pointer; color: var(--primary-blue); font-size: 16px;
     }
     .main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
@@ -45,17 +45,17 @@
     .main-nav .apk-button { background: none; color: var(--white); padding: 8px 15px; font-weight: 500; }
     .main-nav .user-info { font-weight: 500; padding-right: 10px; }
     .cart-icon { margin-right: 70px;
-        color: var(--white); text-decoration: none; font-size: 18px;
+        color: rgb(209, 202, 203); text-decoration: none; font-size: 18px;
         position: relative; display: flex; align-items: center;
     }
     #cartCount {
         background-color: red; border-radius: 50%; padding: 2px 6px;
         font-size: 12px; position: absolute; top: -8px; right: -12px;
     }
-    .category-menu { background-color: rgb(219, 211, 212);/*background-color: pink;*/ padding: 10px 0; box-shadow: 0 2px 4px rgba(85, 224, 30, 0.986); }
+    .category-menu { background-color: rgb(255, 255, 255);/*background-color: pink;*/ padding: 10px 0; box-shadow: 0 2px 4px rgba(85, 224, 30, 0.986); }
     .category-menu ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-around; }
     .category-menu a { text-decoration: none; color: red; font-weight: 500; padding: 10px 15px; }
-    .category-menu a:hover { color: yellow; }
+    .category-menu a:hover { color: rgb(255, 0, 212); }
 
     /* Style for the main navigation container */
 .bottom-nav {
