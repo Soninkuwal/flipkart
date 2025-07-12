@@ -138,8 +138,8 @@
                     <a href="laptops.html"><img src="https://rukminim2.flixcart.com/image/120/120/kylvr0w0/shirt/u/p/t/m-1596-fs-maple-killer-original-imagasvf8qupbpuz.jpeg" alt="Laptops"></a>
                 </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevImageSlide">&#10094;</button>
-                    <button class="next-slide" id="nextImageSlide">&#10095;</button>
+                    <button class="prev-slide" id="prevImageSlide">❮</button>
+                    <button class="next-slide" id="nextImageSlide">❯</button>
                 </div>
             </div>
         </section>
@@ -147,39 +147,45 @@
 
         <section class="content-slider-section">
             <div class="container">
-                <h2>Still Looking For These?</h2>
+                <div class="section-header">
+                    <h2>Still Looking For These?</h2>
+                    <button class="view-all-btn" data-section="still-looking">View All</button>
+                </div>
                 <div class="content-slider" id="stillLookingSlider">
-                    <!-- JS will populate cards with category labels -->
                 </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevStillLookingSlide">&#10094;</button>
-                    <button class="next-slide" id="nextStillLookingSlide">&#10095;</button>
+                    <button class="prev-slide" id="prevStillLookingSlide">❮</button>
+                    <button class="next-slide" id="nextStillLookingSlide">❯</button>
                 </div>
             </div>
         </section>
 
         <section class="best-electronics-section">
             <div class="container">
-                <h2>Best for Electronics</h2>
+                <div class="section-header">
+                    <h2>Best for Electronics</h2>
+                    <button class="view-all-btn" data-section="electronics">View All</button>
+                </div>
                 <div class="content-slider" id="bestElectronicsSlider">
-                    <!-- Auto-populated by JS -->
                 </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevBestElectronicsSlide">&#10094;</button>
-                    <button class="next-slide" id="nextBestElectronicsSlide">&#10095;</button>
+                    <button class="prev-slide" id="prevBestElectronicsSlide">❮</button>
+                    <button class="next-slide" id="nextBestElectronicsSlide">❯</button>
                 </div>
             </div>
         </section>
 
         <section class="content-slider-section">
             <div class="container">
-                <h2>Suggested For You</h2>
+                <div class="section-header">
+                    <h2>Suggested For You</h2>
+                    <button class="view-all-btn" data-section="suggested">View All</button>
+                </div>
                 <div class="content-slider" id="suggestedForYouSlider">
-                    <!-- JS will populate cards with category labels -->
                 </div>
                 <div class="slider-nav">
-                    <button class="prev-slide" id="prevSuggestedSlide">&#10094;</button>
-                    <button class="next-slide" id="nextSuggestedSlide">&#10095;</button>
+                    <button class="prev-slide" id="prevSuggestedSlide">❮</button>
+                    <button class="next-slide" id="nextSuggestedSlide">❯</button>
                 </div>
             </div>
         </section>
@@ -187,7 +193,7 @@
 
     <div id="productDetailModal" class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
+            <span class="close-button">×</span>
             <div id="productDetailContent">
             </div>
         </div>
@@ -195,7 +201,7 @@
 
     <div id="loginModal" class="modal">
         <div class="auth-modal-content">
-            <span class="close-button" id="closeLoginModal">&times;</span>
+            <span class="close-button" id="closeLoginModal">×</span>
             <h2>Login</h2>
             <form id="loginForm">
                 <div class="auth-form-group">
@@ -215,7 +221,7 @@
 
     <div id="registerModal" class="modal">
         <div class="auth-modal-content">
-            <span class="close-button" id="closeRegisterModal">&times;</span>
+            <span class="close-button" id="closeRegisterModal">×</span>
             <h2>Register</h2>
             <form id="registerForm">
                 <div class="auth-form-group">
@@ -239,7 +245,7 @@
 
     <div id="profileModal" class="modal">
         <div class="modal-content">
-            <span class="close-button" id="closeProfileModal">&times;</span>
+            <span class="close-button" id="closeProfileModal">×</span>
             <h2>Your Profile</h2>
             <div class="profile-info">
                 <p><strong>Name:</strong> <span id="profileNameDisplay"></span></p>
@@ -273,7 +279,7 @@
     <!-- Cart Modal with styled delivery address fields -->
     <div id="cartModal" class="modal">
         <div class="modal-content cart-modal-content">
-            <span class="close-button" id="closeCartModal">&times;</span>
+            <span class="close-button" id="closeCartModal">×</span>
             <h2>Your Cart</h2>
             <div id="cartProductsList"></div>
             <form id="checkoutForm">
@@ -300,6 +306,92 @@
             </form>
         </div>
     </div>
+    
+    <!-- NEW: Category View Modal -->
+    <div id="categoryViewModal" class="modal">
+        <div class="category-modal-content">
+            <span class="close-button" id="closeCategoryViewModal">×</span>
+            <h2 id="categoryViewTitle"></h2>
+            <div class="category-view-container">
+                <button id="filterToggleButton" class="filter-toggle-btn"><i class="fas fa-filter"></i></button>
+                <aside class="filter-sidebar" id="filterSidebar">
+                    <button id="closeFilterSidebarBtn" class="close-sidebar-btn">×</button>
+                    <h3>Filters</h3>
+                    <div class="filter-group" id="categoryFilter">
+                        <h4>Category</h4>
+                    </div>
+                    <div class="filter-group" id="brandFilter">
+                        <h4>Brand</h4>
+                    </div>
+                    <div class="filter-group" id="priceFilter">
+                        <h4>Price</h4>
+                        <div class="filter-option"><input type="radio" name="price" value="0-1000"> Under ₹1,000</div>
+                        <div class="filter-option"><input type="radio" name="price" value="1000-5000"> ₹1,000 - ₹5,000</div>
+                        <div class="filter-option"><input type="radio" name="price" value="5000-10000"> ₹5,000 - ₹10,000</div>
+                        <div class="filter-option"><input type="radio" name="price" value="10000-Infinity"> Above ₹10,000</div>
+                        <div class="filter-option"><input type="radio" name="price" value="all" checked> All</div>
+                    </div>
+                    <div class="filter-group" id="ratingFilter">
+                        <h4>Customer Ratings</h4>
+                        <div class="filter-option"><input type="radio" name="rating" value="4"> 4★ & above</div>
+                        <div class="filter-option"><input type="radio" name="rating" value="3"> 3★ & above</div>
+                        <div class="filter-option"><input type="radio" name="rating" value="all" checked> All</div>
+                    </div>
+                    <button id="applyFiltersBtn" class="auth-button-submit">Apply Filters</button>
+                </aside>
+                <main class="product-grid-container">
+                    <div id="categoryProductGrid" class="product-grid">
+                    </div>
+                    <button id="loadMoreProductsBtn" class="auth-button-submit" style="display:none;">Load More</button>
+                </main>
+            </div>
+        </div>
+    </div>
+    
+    <!-- NEW: Address confirmation modal for Buy Now -->
+    <div id="addressModal" class="modal">
+        <div class="modal-content address-modal-content">
+            <span class="close-button" id="closeAddressModal">×</span>
+            <h2>Confirm Delivery Address</h2>
+            <form id="buyNowAddressForm">
+                <button type="button" id="useCurrentLocationBtn" class="location-btn">
+                    <i class="fas fa-map-marker-alt"></i> Use Current Location
+                </button>
+                <div class="address-form-group">
+                    <label for="addressName">Name</label>
+                    <input type="text" id="addressName" required>
+                </div>
+                <div class="address-form-group">
+                    <label for="addressMobile">Mobile No.</label>
+                    <input type="tel" id="addressMobile" required>
+                </div>
+                <div class="address-form-group">
+                    <label for="addressEmail">Email ID</label>
+                    <input type="email" id="addressEmail" required>
+                </div>
+                <div class="address-form-group">
+                    <label for="addressPincode">Pin Code</label>
+                    <input type="text" id="addressPincode" required>
+                </div>
+                 <div class="address-form-group">
+                    <label for="addressState">State</label>
+                    <input type="text" id="addressState" required>
+                </div>
+                 <div class="address-form-group">
+                    <label for="addressCountry">Country</label>
+                    <input type="text" id="addressCountry" value="India" required>
+                </div>
+                <div class="address-form-group">
+                    <label>
+                        <input type="checkbox" id="saveAddressPermanently"> Save this address permanently
+                    </label>
+                </div>
+                <p id="addressError" class="auth-error-message"></p>
+                <button type="submit" class="auth-button-submit">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
 
     <!-- Footer Section -->
     <footer class="site-footer">
@@ -351,7 +443,7 @@
                     <li><a href="returns.html">Returns & Refunds</a></li>
                     <li><a href="shipping.html">Shipping Info</a></li>
                 </ul>
-                <p>&copy; <span id="currentYear"></span> My flipkart Site. All rights reserved.</p>
+                <p>© <span id="currentYear"></span> My flipkart Site. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -372,9 +464,11 @@
     document.addEventListener('DOMContentLoaded', function() {
         const menuBtn = document.getElementById('menuToggleBtn');
         const menuList = document.getElementById('topBarMenuList');
-        menuBtn.addEventListener('click', function() {
-            menuList.classList.toggle('open');
-        });
+        if(menuBtn && menuList) { // Check if elements exist
+            menuBtn.addEventListener('click', function() {
+                menuList.classList.toggle('open');
+            });
+        }
     });
     </script>
 </body>
