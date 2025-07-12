@@ -21,7 +21,6 @@
     <meta name="twitter:image" content="https://www.yourecommerce.com/images/twitter-image.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,500,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg">
     <link rel="stylesheet" href="style.css">
 <style>
 
@@ -35,8 +34,8 @@
                 <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" alt="Company Logo">
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
                 <button id="searchButton"><i class="fas fa-search"></i></button>
+                <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
             </div>
             <nav class="main-nav">
                 <ul id="mainNavItems">
@@ -63,7 +62,7 @@
                         </ul>
                     </li>
                     <li id="logoutMenuItem" style="display: none;"><button class="auth-button" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
-                    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>Card</li>
+                    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>Card</a></li>
                 </ul>
             </nav>
         </div>
@@ -141,6 +140,22 @@
                 <div class="slider-nav">
                     <button class="prev-slide" id="prevImageSlide">❮</button>
                     <button class="next-slide" id="nextImageSlide">❯</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="Best-Deals-on-Smartphones-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Best Deals on Smartphones</h2>
+                    <button class="view-all-btn" data-section="Smartphones">View All</button>
+                </div>
+                <div class="content-slider" id="BestDealsonSmartphonesSlider">
+                </div>
+                <div class="slider-nav">
+                    <button class="prev-slide" id="prevBestDealsonSmartphonesSlide">❮</button>
+                    <button class="next-slide" id="nextBestDealsonSmartphonesSlide">❯</button>
                 </div>
             </div>
         </section>
