@@ -207,6 +207,7 @@
                     price: '₹15,999',
                     rating: 4.5,
                     Category: 'Electronics',
+                    brand: 'Samsung',
                     newSeason: 'Summer 2025 Collection',
                     detailedDescription: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam, Digital Inverter Motor Fully Automatic Front Load Washing Machine with In-built Heater Grey  (WW90DG5U24AXTL)',
                     additionalImages: [
@@ -224,6 +225,7 @@
                     price: '₹2,499',
                     rating: 4.2,
                     Category: 'Electronics',
+                    brand: 'Sony',
                     newSeason: 'Audio Gear Focus',
                     detailedDescription: 'Escape into your music with these premium noise-cancelling headphones. Ergonomically designed for long-listening comfort, they deliver rich, clear audio with deep bass. Features include touch controls, 30-hour battery life, and a foldable design for portability.',
                     additionalImages: [
@@ -240,6 +242,7 @@
                     price: '₹3,999',
                     rating: 4.0,
                     Category: 'Electronics',
+                    brand: 'Noise',
                     newSeason: 'Fitness Tech',
                     detailedDescription: 'Monitor your health and fitness goals with this advanced smartwatch. It tracks heart rate, steps, sleep, and features multiple sports modes. Receive notifications, control music, and make calls directly from your wrist. Water-resistant design.',
                     additionalImages: [
@@ -256,6 +259,7 @@
                     price: '₹45,000',
                     rating: 4.7,
                     Category: 'Electronics',
+                    brand: 'HP',
                     newSeason: 'Back to Work Essentials',
                     detailedDescription: 'Boost your productivity with this ultra-thin and lightweight 14-inch laptop. Equipped with the latest processor, ample RAM, and a fast SSD, it handles multitasking with ease. Features a backlit keyboard and a high-resolution display.',
                     additionalImages: [
@@ -272,6 +276,7 @@
                     price: '₹1,299',
                     rating: 3.8,
                     Category: 'Fashion',
+                    brand: 'Levi\'s',
                     newSeason: 'Casual Wear',
                     detailedDescription: 'Upgrade your wardrobe with these versatile slim-fit jeans. Made from high-quality denim with a hint of stretch for ultimate comfort and flexibility. Perfect for everyday wear, pair them with a t-shirt or a casual shirt.',
                     additionalImages: [
@@ -288,6 +293,7 @@
                     price: '₹3,500',
                     rating: 4.3,
                     Category: 'Kitchen Appliances',
+                    brand: 'Philips',
                     newSeason: 'Kitchen Appliances',
                     detailedDescription: 'Start your day right with freshly brewed coffee from this automatic coffee maker. Features a programmable timer, large water reservoir, and a keep-warm function. Easy to clean and brews up to 12 cups.',
                     additionalImages: [
@@ -318,6 +324,7 @@
             }
 
             function populateSlider(sliderElement, products) {
+                if(!sliderElement) return;
                 sliderElement.innerHTML = ''; // Clear existing content
                 products.forEach(product => {
                     const card = createProductCard(product);
@@ -327,18 +334,18 @@
 
             // Populate "Still Looking For These?"
             const stillLookingSlider = document.getElementById('stillLookingSlider');
-            populateSlider(stillLookingSlider, dummyProducts.slice(0, 4)); // Show first 4 for this section
+            const fashionProducts = dummyProducts.filter(p => p.Category === 'Fashion');
+            populateSlider(stillLookingSlider, fashionProducts.slice(0)); // 0, 5 Show first 5 for this section
 
             // Populate "Best for Electronics"
             const bestElectronicsSlider = document.getElementById('bestElectronicsSlider');
-            // Randomize or pick different products for suggested
-            populateSlider(bestElectronicsSlider, dummyProducts.slice(0, 4));
+            const electronicsProducts = dummyProducts.filter(p => p.Category === 'Electronics');
+            populateSlider(bestElectronicsSlider, electronicsProducts.slice(0)); // 0, 5 Show first 5 for this section
 
             // Populate "Suggested For You"
             const suggestedForYouSlider = document.getElementById('suggestedForYouSlider');
-            // Randomize or pick different products for suggested
             const shuffledProducts = [...dummyProducts].sort(() => 0.5 - Math.random());
-            populateSlider(suggestedForYouSlider, shuffledProducts.slice(0, 4));
+            populateSlider(suggestedForYouSlider, shuffledProducts.slice(0)); // 0, 5 Show first 5 for this section
 
 
             // Slider navigation for content cards
@@ -362,30 +369,80 @@
 
             setupContentSlider('stillLookingSlider', 'prevStillLookingSlide', 'nextStillLookingSlide');
             setupContentSlider('suggestedForYouSlider', 'prevSuggestedSlide', 'nextSuggestedSlide');
+            setupContentSlider('bestElectronicsSlider', 'prevBestElectronicsSlide', 'nextBestElectronicsSlide');
 
 
             // --- Product Detail Modal ---
             const productDetailModal = document.getElementById('productDetailModal');
             const productDetailContent = document.getElementById('productDetailContent');
             const closeButtonProductDetail = productDetailModal.querySelector('.close-button');
+            
+            function openProductDetail(product) {
+                if (product) {
+                    renderProductDetail(product);
+                    productDetailModal.style.display = 'flex'; // Show modal
+                }
+            }
 
             // Open modal when a product card is clicked
-            document.querySelectorAll('.content-card').forEach(card => {
-                card.addEventListener('click', (event) => {
-                    const productId = event.currentTarget.dataset.productId;
+            document.body.addEventListener('click', (event) => {
+                const card = event.target.closest('.content-card');
+                if (card && card.dataset.productId) {
+                    const productId = card.dataset.productId;
                     const product = dummyProducts.find(p => p.id === productId);
-
-                    if (product) {
-                        renderProductDetail(product);
-                        productDetailModal.style.display = 'flex'; // Show modal
-                    }
-                });
+                    openProductDetail(product);
+                }
             });
 
             // Close product detail modal
             closeButtonProductDetail.addEventListener('click', () => {
                 productDetailModal.style.display = 'none';
             });
+            
+            // --- Address Confirmation Modal ---
+            const addressModal = document.getElementById('addressModal');
+            const buyNowAddressForm = document.getElementById('buyNowAddressForm');
+            const closeAddressModal = document.getElementById('closeAddressModal');
+            let currentProductForPurchase = null;
+            
+            closeAddressModal.addEventListener('click', () => {
+                addressModal.style.display = 'none';
+            });
+
+            buyNowAddressForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const address = {
+                    name: document.getElementById('addressName').value,
+                    mobile: document.getElementById('addressMobile').value,
+                    email: document.getElementById('addressEmail').value,
+                    pincode: document.getElementById('addressPincode').value,
+                    state: document.getElementById('addressState').value,
+                    country: document.getElementById('addressCountry').value,
+                };
+                
+                // Simple validation
+                if(!address.name || !address.mobile || !address.email || !address.pincode) {
+                    document.getElementById('addressError').textContent = 'Please fill all required fields.';
+                    return;
+                }
+                document.getElementById('addressError').textContent = '';
+
+                if (document.getElementById('saveAddressPermanently').checked) {
+                    localStorage.setItem('userDeliveryAddress', JSON.stringify(address));
+                    alert('Address saved permanently!');
+                }
+                
+                addressModal.style.display = 'none';
+                initiatePayment(currentProductForPurchase, address);
+            });
+            
+            document.getElementById('useCurrentLocationBtn').addEventListener('click', () => {
+                alert("Simulating fetching current location... In a real app, this would use the Geolocation API.");
+                // Dummy data for demonstration
+                 document.getElementById('addressPincode').value = "400001";
+                 document.getElementById('addressState').value = "Maharashtra";
+            });
+
 
             window.addEventListener('click', (event) => {
                 if (event.target === productDetailModal) {
@@ -396,6 +453,8 @@
                     registerModal.style.display = 'none';
                 } else if (event.target === profileModal) {
                     profileModal.style.display = 'none';
+                } else if (event.target === addressModal) {
+                    addressModal.style.display = 'none';
                 }
             });
 
@@ -463,58 +522,71 @@
                     cartItemCount++;
                     updateCartCount();
                     alert(`${product.title} added to cart!`);
-                    // In a real app, update cart in backend/local storage
                 });
 
-                // Razorpay integration for Buy Now
-                productDetailContent.querySelector('.buy-now-button').addEventListener('click', async () => {
-                    if (!auth.currentUser) { // Check if user is logged in
+                // NEW: Updated "Buy Now" logic
+                productDetailContent.querySelector('.buy-now-button').addEventListener('click', () => {
+                    if (!auth.currentUser) {
                         alert('Please log in to proceed with the purchase.');
-                        loginModal.style.display = 'flex'; // Open login modal
+                        loginModal.style.display = 'flex';
                         return;
                     }
+                    currentProductForPurchase = product;
+                    productDetailModal.style.display = 'none'; // Close product detail
+                    
+                    // Pre-fill address form
+                    const savedAddress = JSON.parse(localStorage.getItem('userDeliveryAddress'));
+                    if(savedAddress) {
+                        document.getElementById('addressName').value = savedAddress.name || auth.currentUser.displayName;
+                        document.getElementById('addressMobile').value = savedAddress.mobile || '';
+                        document.getElementById('addressEmail').value = savedAddress.email || auth.currentUser.email;
+                        document.getElementById('addressPincode').value = savedAddress.pincode || '';
+                        document.getElementById('addressState').value = savedAddress.state || '';
+                        document.getElementById('addressCountry').value = savedAddress.country || 'India';
+                    } else {
+                        document.getElementById('addressName').value = auth.currentUser.displayName;
+                        document.getElementById('addressEmail').value = auth.currentUser.email;
+                    }
+                    
+                    addressModal.style.display = 'flex'; // Open address confirmation modal
+                });
+            }
 
-                    alert(`Initiating payment for ${product.title}...`);
-
-                    try {
-                        // Dummy Razorpay Order Creation - In a real app, this would be a backend call
-                        // const response = await fetch('/api/create-razorpay-order', { ... });
-                        // const orderData = await response.json();
+            // Payment initiation logic
+            async function initiatePayment(product, address) {
+                 alert(`Initiating payment for ${product.title}...`);
+                 try {
                         const dummyOrderId = 'order_' + Math.random().toString(36).substr(2, 9);
                         const dummyAmount = parseFloat(product.price.replace('₹', '').replace(/,/g, '')) * 100; // Amount in paisa
                         const dummyCurrency = 'INR';
 
                         const options = {
-                            key: 'rzp_test_YOUR_KEY_ID', // Replace with your actual Test Key ID from Razorpay Dashboard
+                            key: 'rzp_test_YOUR_KEY_ID', // Replace with your actual Test Key ID
                             amount: dummyAmount,
                             currency: dummyCurrency,
-                            name: 'My E-commerce Site',
+                            name: 'My flipkart Site',
                             description: `Purchase of ${product.title}`,
-                            order_id: dummyOrderId, // This would come from your backend
+                            order_id: dummyOrderId, 
                             handler: async function (response) {
-                                alert('Payment successful! Verifying payment...');
-                                // In a real app, send payment details to your backend for verification
-                                // const verifyResponse = await fetch('/api/verify-razorpay-payment', { ... });
-                                // const verifyResult = await verifyResponse.json();
-
-                                // Simulate backend verification and purchase recording
                                 if (response.razorpay_payment_id) {
                                     alert('Payment verified and order placed successfully!');
+                                    // NEW: Simulate confirmation messages
+                                    alert(`A confirmation SMS has been sent to ${address.mobile} and an email to ${address.email}.`);
+                                    
                                     const currentUser = auth.currentUser;
                                     if (currentUser) {
-                                        // Record purchase in Firebase Realtime Database
                                         const purchaseId = database.ref('users/' + currentUser.uid + '/purchases').push().key;
                                         const purchaseData = {
                                             productId: product.id,
                                             title: product.title,
                                             price: product.price,
                                             image: product.image,
-                                            purchaseDate: firebase.database.ServerValue.TIMESTAMP, // Store server timestamp
+                                            purchaseDate: firebase.database.ServerValue.TIMESTAMP,
                                             paymentId: response.razorpay_payment_id,
-                                            orderId: response.razorpay_order_id || dummyOrderId // Use actual order_id if available from Razorpay
+                                            orderId: response.razorpay_order_id || dummyOrderId,
+                                            deliveryAddress: address
                                         };
                                         await database.ref('users/' + currentUser.uid + '/purchases/' + purchaseId).set(purchaseData);
-                                        // Update profile view if modal is open
                                         if (profileModal.style.display === 'flex') {
                                             displayPurchasedProducts(currentUser);
                                         }
@@ -524,12 +596,12 @@
                                 }
                             },
                             prefill: {
-                                name: auth.currentUser.displayName || '',
-                                email: auth.currentUser.email || '',
-                                contact: '' // User's phone number if available
+                                name: address.name,
+                                email: address.email,
+                                contact: address.mobile
                             },
                             notes: {
-                                address: 'Customer Address' // Add delivery address if collected
+                                address: `${address.pincode}, ${address.state}, ${address.country}`
                             },
                             theme: {
                                 color: '#2874f0'
@@ -547,8 +619,8 @@
                         alert(`Error during payment initiation: ${error.message}`);
                         console.error('Payment Error:', error);
                     }
-                });
             }
+
 
             // --- Profile Modal Functionality ---
             const profileModal = document.getElementById('profileModal');
@@ -616,7 +688,6 @@
                     // Handle specific Firebase errors like 'auth/requires-recent-login'
                     if (error.code === 'auth/requires-recent-login') {
                         profileEditErrorMessage.textContent = 'Please log in again to update your password (for security reasons).';
-                        // You might want to re-authenticate the user here
                     } else {
                         profileEditErrorMessage.textContent = error.message;
                     }
@@ -627,7 +698,6 @@
             async function displayPurchasedProducts(user) {
                 purchasedProductsList.innerHTML = '<p>Loading purchases...</p>';
                 try {
-                    // Fetch purchases from Realtime Database
                     const snapshot = await database.ref('users/' + user.uid + '/purchases').once('value');
                     const purchases = snapshot.val();
                     let hasVisiblePurchases = false;
@@ -638,7 +708,6 @@
 
                         Object.values(purchases).reverse().forEach(purchase => { // Display newest first
                             const purchaseDate = new Date(purchase.purchaseDate);
-                            // Set validity to 3 days (72 hours) after purchase
                             const validUntil = new Date(purchaseDate.getTime() + (3 * 24 * 60 * 60 * 1000));
 
                             if (today <= validUntil) { // Only show products within the 3-day window
@@ -673,14 +742,10 @@
             // --- Firebase Auth State Listener ---
             auth.onAuthStateChanged(user => {
                 if (user) {
-                    // User is signed in.
                     loginMenuItem.style.display = 'none';
                     registerMenuItem.style.display = 'none';
                     profileMenuItem.style.display = 'list-item';
                     logoutMenuItem.style.display = 'list-item';
-                    console.log('User logged in:', user.email, user.displayName);
-
-                    // If profile modal is open, refresh data
                     if (profileModal.style.display === 'flex') {
                         profileNameDisplay.textContent = user.displayName || 'N/A';
                         profileEmailDisplay.textContent = user.email || 'N/A';
@@ -689,12 +754,10 @@
                     }
 
                 } else {
-                    // User is signed out.
                     loginMenuItem.style.display = 'list-item';
                     registerMenuItem.style.display = 'list-item';
                     profileMenuItem.style.display = 'none';
                     logoutMenuItem.style.display = 'none';
-                    console.log('User logged out.');
                 }
             });
 
@@ -717,7 +780,6 @@
         document.querySelector('.cart-icon').addEventListener('click', (e) => {
             e.preventDefault();
             displayCartProducts();
-            // Autofill user info if logged in
             if (auth.currentUser) {
                 checkoutName.value = auth.currentUser.displayName || '';
                 checkoutEmail.value = auth.currentUser.email || '';
@@ -754,14 +816,12 @@
             }
         }
 
-        // Add to cart logic (update to push product to cartProducts array)
         function addToCart(product) {
             cartProducts.push(product);
             cartItemCount = cartProducts.length;
             updateCartCount();
         }
 
-        // Autofill delivery address from localStorage if available
         function autofillAddressFields() {
             const saved = JSON.parse(localStorage.getItem('userDeliveryAddress') || '{}');
             if (saved.name) checkoutName.value = saved.name;
@@ -770,7 +830,6 @@
             if (saved.address) checkoutAddress.value = saved.address;
         }
 
-        // Show cart modal when cart icon is clicked
         document.querySelector('.cart-icon').addEventListener('click', (e) => {
             e.preventDefault();
             displayCartProducts();
@@ -779,7 +838,6 @@
             addressSaveStatus.textContent = '';
         });
 
-        // Save address button logic (permanent save in localStorage)
         saveAddressBtn.addEventListener('click', () => {
             const name = checkoutName.value.trim();
             const mobile = checkoutMobile.value.trim();
@@ -797,7 +855,6 @@
             addressSaveStatus.style.color = 'green';
         });
 
-        // Checkout form submit (redirect to order post section/page)
         checkoutForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = checkoutName.value.trim();
@@ -814,79 +871,157 @@
             cartProducts = [];
             updateCartCount();
             cartModal.style.display = 'none';
-            window.location.href = 'order-post.html'; // Redirect to order post section/page
+            window.location.href = 'order-post.html';
         });
 
-        // Simulate IP address change every second (demo only)
-        setInterval(() => {
-            window.currentFakeIP = '192.0.2.' + Math.floor(Math.random() * 255);
-            window.US_IP_PROTOCOL = true;
-            // Optionally, display currentFakeIP somewhere in the UI
-        }, 1000);
+        // --- NEW: Category View Modal Logic ---
+        const categoryViewModal = document.getElementById('categoryViewModal');
+        const closeCategoryViewModal = document.getElementById('closeCategoryViewModal');
+        const categoryViewTitle = document.getElementById('categoryViewTitle');
+        const categoryProductGrid = document.getElementById('categoryProductGrid');
+        const filterSidebar = document.getElementById('filterSidebar');
+        const filterToggleButton = document.getElementById('filterToggleButton');
+        const closeFilterSidebarBtn = document.getElementById('closeFilterSidebarBtn');
+        const loadMoreProductsBtn = document.getElementById('loadMoreProductsBtn');
 
+        let currentCategoryProducts = [];
+        let filteredProductsList = [];
+        const PRODUCTS_PER_PAGE = 8;
+        let currentPage = 1;
 
-            // --- Best for Electronics Section ---
-//            const bestElectronicsSlider = document.getElementById('bestElectronicsSlider');
-//            const prevBestElectronicsSlide = document.getElementById('prevBestElectronicsSlide');
-//            const nextBestElectronicsSlide = document.getElementById('nextBestElectronicsSlide');
+        document.querySelectorAll('.view-all-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.dataset.section;
+                let productsToShow = [];
+                let title = "";
 
-            // Filter electronics products (example: by title or category)
-//            const electronicsProducts = dummyProducts.filter(p =>
-//                p.Category && p.Category.toLowerCase().includes('electronics')
-//            );
+                if (section === 'electronics') {
+                    productsToShow = dummyProducts.filter(p => p.Category === 'Electronics');
+                    title = "Best for Electronics";
+                } else if (section === 'suggested') {
+                    productsToShow = [...dummyProducts].sort(() => 0.5 - Math.random());
+                    title = "Suggested For You";
+                } else { // 'still-looking' or other general categories
+                    productsToShow = dummyProducts;
+                    title = "All Products";
+                }
+                
+                openCategoryView(title, productsToShow);
+            });
+        });
+        
+        function openCategoryView(title, products) {
+            currentCategoryProducts = products;
+            categoryViewTitle.textContent = title;
+            populateFilterOptions(products);
+            applyFiltersAndRender();
+            categoryViewModal.style.display = 'flex';
+            if (window.innerWidth <= 992) {
+                filterSidebar.classList.remove('is-open');
+            }
+        }
+        
+        closeCategoryViewModal.addEventListener('click', () => {
+            categoryViewModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (event) => {
+            if (event.target === categoryViewModal) {
+                categoryViewModal.style.display = 'none';
+            }
+        });
+        
+        // Sidebar toggle logic
+        filterToggleButton.addEventListener('click', () => {
+            filterSidebar.classList.add('is-open');
+        });
+        closeFilterSidebarBtn.addEventListener('click', () => {
+            filterSidebar.classList.remove('is-open');
+        });
 
-//            function getCategoryLabel(product) {
-//                return product.Category || 'Electronics';
-//            }
+        
+        function populateFilterOptions(products) {
+            const brandFilter = document.getElementById('brandFilter');
+            const categoryFilter = document.getElementById('categoryFilter');
+            
+            const brands = [...new Set(products.map(p => p.brand))];
+            const categories = [...new Set(products.map(p => p.Category))];
+            
+            brandFilter.innerHTML = '<h4>Brand</h4>'; // Reset
+            brands.forEach(brand => {
+                brandFilter.innerHTML += `<div class="filter-option"><input type="checkbox" name="brand" value="${brand}"> ${brand}</div>`;
+            });
 
-//            function createElectronicsCard(product) {
-//                const card = document.createElement('div');
-//                card.classList.add('content-card');
-//                card.innerHTML = `
-//                    <span class="category-label">${getCategoryLabel(product)}</span>
-//                    <div class="slider-images">
-//                        ${product.additionalImages.map((img, i) =>
-//                            `<img src="${img}" alt="img${i}" onclick="this.parentNode.parentNode.querySelector('.main-img').src='${img}'">`
-//                        ).join('')}
-//                    </div>
-//                    <img class="main-img" src="${product.image}" alt="${product.title}" style="width:100%;height:120px;object-fit:contain;border-radius:6px;">
-//                    <h3 class="card-title" style="cursor:pointer;">${product.title}</h3>
-//                    <div class="new-season">${product.newSeason}</div>
-//                    <div class="short-description">${product.detailedDescription.substring(0, 60)}...</div>
-//                    <div class="price">${product.price}</div>
-//                `;
-                // Clickable post/image/title
-//                card.querySelector('.main-img').addEventListener('click', () => showElectronicsModal(product));
-//                card.querySelector('.card-title').addEventListener('click', () => showElectronicsModal(product));
-//                card.addEventListener('click', (e) => {
-//                    if (e.target.classList.contains('main-img') || e.target.classList.contains('card-title')) return;
-//                    showElectronicsModal(product);
-//                });
-//                return card;
-//            }
+            categoryFilter.innerHTML = '<h4>Category</h4>'; // Reset
+            categories.forEach(cat => {
+                categoryFilter.innerHTML += `<div class="filter-option"><input type="checkbox" name="category" value="${cat}"> ${cat}</div>`;
+            });
+        }
+        
+        document.getElementById('applyFiltersBtn').addEventListener('click', applyFiltersAndRender);
+        
+        function applyFiltersAndRender() {
+            let filteredProducts = [...currentCategoryProducts];
+            
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+            if(selectedCategories.length > 0) {
+                filteredProducts = filteredProducts.filter(p => selectedCategories.includes(p.Category));
+            }
+            
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(cb => cb.value);
+            if (selectedBrands.length > 0) {
+                filteredProducts = filteredProducts.filter(p => selectedBrands.includes(p.brand));
+            }
+            
+            const selectedPrice = document.querySelector('input[name="price"]:checked').value;
+            if (selectedPrice !== 'all') {
+                const [min, max] = selectedPrice.split('-').map(parseFloat);
+                filteredProducts = filteredProducts.filter(p => {
+                    const price = parseFloat(p.price.replace('₹', '').replace(/,/g, ''));
+                    return price >= min && price < (max || Infinity);
+                });
+            }
+            
+            const selectedRating = document.querySelector('input[name="rating"]:checked').value;
+            if (selectedRating !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.rating >= parseFloat(selectedRating));
+            }
 
-//            function populateBestElectronicsSlider() {
-//                bestElectronicsSlider.innerHTML = '';
-//                electronicsProducts.forEach(product => {
-//                    bestElectronicsSlider.appendChild(createElectronicsCard(product));
-//                });
-//            }
-//            populateBestElectronicsSlider();
+            filteredProductsList = filteredProducts;
+            currentPage = 1;
+            categoryProductGrid.innerHTML = ''; // Clear grid for new results
+            renderProductPage();
+            
+            if (window.innerWidth <= 992) {
+                filterSidebar.classList.remove('is-open');
+            }
+        }
 
-//            function setupBestElectronicsSlider() {
-//                const scrollAmount = 260;
-//                prevBestElectronicsSlide.addEventListener('click', () => {
-//                    bestElectronicsSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-//                });
-//                nextBestElectronicsSlide.addEventListener('click', () => {
-//                    bestElectronicsSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-//                });
-//            }
-//            setupBestElectronicsSlider();
+        function renderProductPage() {
+            const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+            const end = start + PRODUCTS_PER_PAGE;
+            const productsToRender = filteredProductsList.slice(start, end);
 
-//            function showElectronicsModal(product) {
-//                renderProductDetail(product);
-//                document.getElementById('productDetailModal').style.display = 'flex';
-//            }
+            if (currentPage === 1 && productsToRender.length === 0) {
+                categoryProductGrid.innerHTML = '<p>No products match your criteria.</p>';
+                loadMoreProductsBtn.style.display = 'none';
+                return;
+            }
 
+            productsToRender.forEach(product => {
+                const card = createProductCard(product);
+                categoryProductGrid.appendChild(card);
+            });
+
+            if (end >= filteredProductsList.length) {
+                loadMoreProductsBtn.style.display = 'none';
+            } else {
+                loadMoreProductsBtn.style.display = 'block';
+            }
+        }
+
+        loadMoreProductsBtn.addEventListener('click', () => {
+            currentPage++;
+            renderProductPage();
+        });
         });
