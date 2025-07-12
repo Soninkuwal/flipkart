@@ -28,11 +28,18 @@
             const profileMenuItem = document.getElementById('profileMenuItem');
             const logoutMenuItem = document.getElementById('logoutMenuItem');
 
+            // MODIFIED: Search button logic to show results in category view
             searchButton.addEventListener('click', () => {
-                const searchTerm = searchInput.value.trim();
+                const searchTerm = searchInput.value.trim().toLowerCase();
                 if (searchTerm) {
-                    alert(`Searching for: ${searchTerm}`);
-                    // In a real app, you'd send this to a backend search API
+                    const searchResults = dummyProducts.filter(p => {
+                        return p.title.toLowerCase().includes(searchTerm) ||
+                               p.description.toLowerCase().includes(searchTerm) ||
+                               p.Category.toLowerCase().includes(searchTerm) ||
+                               p.brand.toLowerCase().includes(searchTerm);
+                    });
+                    openCategoryView(`Search Results for "${searchInput.value.trim()}"`, searchResults);
+                    searchInput.value = '';
                 } else {
                     alert('Please enter a search term.');
                 }
@@ -206,7 +213,8 @@
                     description: 'Bank Offer10% instant discount',
                     price: '₹15,999',
                     rating: 4.5,
-                    Category: 'Electronics',
+                    Category: 'Appliances',
+                    subcategory: 'Washing Machine',
                     brand: 'Samsung',
                     newSeason: 'Summer 2025 Collection',
                     detailedDescription: 'Samsung 9 kg 5 Star, AI Ecobubble, Super Speed, Wi-Fi, Hygiene Steam, Digital Inverter Motor Fully Automatic Front Load Washing Machine with In-built Heater Grey  (WW90DG5U24AXTL)',
@@ -225,6 +233,7 @@
                     price: '₹2,499',
                     rating: 4.2,
                     Category: 'Electronics',
+                    subcategory: 'Audio',
                     brand: 'Sony',
                     newSeason: 'Audio Gear Focus',
                     detailedDescription: 'Escape into your music with these premium noise-cancelling headphones. Ergonomically designed for long-listening comfort, they deliver rich, clear audio with deep bass. Features include touch controls, 30-hour battery life, and a foldable design for portability.',
@@ -242,6 +251,7 @@
                     price: '₹3,999',
                     rating: 4.0,
                     Category: 'Electronics',
+                    subcategory: 'Mobiles',
                     brand: 'Noise',
                     newSeason: 'Fitness Tech',
                     detailedDescription: 'Monitor your health and fitness goals with this advanced smartwatch. It tracks heart rate, steps, sleep, and features multiple sports modes. Receive notifications, control music, and make calls directly from your wrist. Water-resistant design.',
@@ -259,6 +269,7 @@
                     price: '₹45,000',
                     rating: 4.7,
                     Category: 'Electronics',
+                    subcategory: 'Laptops',
                     brand: 'HP',
                     newSeason: 'Back to Work Essentials',
                     detailedDescription: 'Boost your productivity with this ultra-thin and lightweight 14-inch laptop. Equipped with the latest processor, ample RAM, and a fast SSD, it handles multitasking with ease. Features a backlit keyboard and a high-resolution display.',
@@ -276,6 +287,7 @@
                     price: '₹1,299',
                     rating: 3.8,
                     Category: 'Fashion',
+                    subcategory: 'Men',
                     brand: 'Levi\'s',
                     newSeason: 'Casual Wear',
                     detailedDescription: 'Upgrade your wardrobe with these versatile slim-fit jeans. Made from high-quality denim with a hint of stretch for ultimate comfort and flexibility. Perfect for everyday wear, pair them with a t-shirt or a casual shirt.',
@@ -292,7 +304,8 @@
                     description: 'Brew perfect coffee every morning.',
                     price: '₹3,500',
                     rating: 4.3,
-                    Category: 'Kitchen Appliances',
+                    Category: 'Appliances',
+                    subcategory: 'Kitchen Appliances',
                     brand: 'Philips',
                     newSeason: 'Kitchen Appliances',
                     detailedDescription: 'Start your day right with freshly brewed coffee from this automatic coffee maker. Features a programmable timer, large water reservoir, and a keep-warm function. Easy to clean and brews up to 12 cups.',
@@ -335,17 +348,17 @@
             // Populate "Still Looking For These?"
             const stillLookingSlider = document.getElementById('stillLookingSlider');
             const fashionProducts = dummyProducts.filter(p => p.Category === 'Fashion');
-            populateSlider(stillLookingSlider, fashionProducts.slice(0)); // 0, 5 Show first 5 for this section
+            populateSlider(stillLookingSlider, fashionProducts.slice(0, 5)); 
 
             // Populate "Best for Electronics"
             const bestElectronicsSlider = document.getElementById('bestElectronicsSlider');
             const electronicsProducts = dummyProducts.filter(p => p.Category === 'Electronics');
-            populateSlider(bestElectronicsSlider, electronicsProducts.slice(0)); // 0, 5 Show first 5 for this section
+            populateSlider(bestElectronicsSlider, electronicsProducts.slice(0, 5));
 
             // Populate "Suggested For You"
             const suggestedForYouSlider = document.getElementById('suggestedForYouSlider');
             const shuffledProducts = [...dummyProducts].sort(() => 0.5 - Math.random());
-            populateSlider(suggestedForYouSlider, shuffledProducts.slice(0)); // 0, 5 Show first 5 for this section
+            populateSlider(suggestedForYouSlider, shuffledProducts.slice(0, 5));
 
 
             // Slider navigation for content cards
@@ -524,8 +537,9 @@
                     alert(`${product.title} added to cart!`);
                 });
 
-                // NEW: Updated "Buy Now" logic
+                // "Buy Now" logic: Asks for address confirmation every time.
                 productDetailContent.querySelector('.buy-now-button').addEventListener('click', () => {
+                    // 1. Check if user is logged in
                     if (!auth.currentUser) {
                         alert('Please log in to proceed with the purchase.');
                         loginModal.style.display = 'flex';
@@ -534,9 +548,11 @@
                     currentProductForPurchase = product;
                     productDetailModal.style.display = 'none'; // Close product detail
                     
-                    // Pre-fill address form
+                    // 2. "ask fist time true" logic: Check for a saved address and pre-fill the form.
+                    // If no address is saved, it's the "first time" and fields will be partially blank.
                     const savedAddress = JSON.parse(localStorage.getItem('userDeliveryAddress'));
-                    if(savedAddress) {
+                    if (savedAddress) {
+                        // Pre-fill with saved address
                         document.getElementById('addressName').value = savedAddress.name || auth.currentUser.displayName;
                         document.getElementById('addressMobile').value = savedAddress.mobile || '';
                         document.getElementById('addressEmail').value = savedAddress.email || auth.currentUser.email;
@@ -544,11 +560,18 @@
                         document.getElementById('addressState').value = savedAddress.state || '';
                         document.getElementById('addressCountry').value = savedAddress.country || 'India';
                     } else {
+                        // Pre-fill with basic user info only (first time experience)
                         document.getElementById('addressName').value = auth.currentUser.displayName;
                         document.getElementById('addressEmail').value = auth.currentUser.email;
+                        // Clear other fields for first-time entry
+                        document.getElementById('addressMobile').value = '';
+                        document.getElementById('addressPincode').value = '';
+                        document.getElementById('addressState').value = '';
+                        document.getElementById('addressCountry').value = 'India';
                     }
                     
-                    addressModal.style.display = 'flex'; // Open address confirmation modal
+                    // 3. Always show the address modal for confirmation.
+                    addressModal.style.display = 'flex';
                 });
             }
 
@@ -874,7 +897,7 @@
             window.location.href = 'order-post.html';
         });
 
-        // --- NEW: Category View Modal Logic ---
+        // --- Category View Modal Logic ---
         const categoryViewModal = document.getElementById('categoryViewModal');
         const closeCategoryViewModal = document.getElementById('closeCategoryViewModal');
         const categoryViewTitle = document.getElementById('categoryViewTitle');
@@ -901,13 +924,38 @@
                 } else if (section === 'suggested') {
                     productsToShow = [...dummyProducts].sort(() => 0.5 - Math.random());
                     title = "Suggested For You";
-                } else { // 'still-looking' or other general categories
+                } else { 
                     productsToShow = dummyProducts;
                     title = "All Products";
                 }
                 
                 openCategoryView(title, productsToShow);
             });
+        });
+
+        // NEW: Event listener for top category menu and submenus
+        document.querySelector('.category-menu').addEventListener('click', (e) => {
+            const categoryLink = e.target.closest('a');
+            if (!categoryLink) return;
+
+            e.preventDefault();
+            const subcategory = categoryLink.dataset.subcategory;
+            const category = categoryLink.dataset.category;
+            let productsToShow = [];
+            let title = categoryLink.textContent.trim();
+
+            if (subcategory) {
+                productsToShow = dummyProducts.filter(p => p.subcategory === subcategory);
+            } else if (category) {
+                productsToShow = dummyProducts.filter(p => p.Category === category);
+                // Get title from the .nav-text span if it exists
+                const titleSpan = categoryLink.querySelector('.nav-text');
+                if (titleSpan) title = titleSpan.textContent.trim();
+            }
+
+            if (productsToShow.length > 0) {
+                openCategoryView(title, productsToShow);
+            }
         });
         
         function openCategoryView(title, products) {
