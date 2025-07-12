@@ -314,7 +314,243 @@
                         'https://via.placeholder.com/600x400?text=Coffee+Maker+View+2'
                     ],
                     timeLimit: 'Grab it now!'
-                }
+                },
+                {
+                    id: 'product7',
+                    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg?q=70',
+                    title: 'Motorola G85 5G',
+                    description: 'Track your health and stay connected.',
+                    price: '₹11,999',
+                    rating: 4.0,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Noise',
+                    newSeason: 'Motorola G85 5G (Olive Green, 128 GB)  (8 GB RAM)',
+                    detailedDescription: 'Monitor your health and fitness goals with this advanced smartwatch. It tracks heart rate, steps, sleep, and features multiple sports modes. Receive notifications, control music, and make calls directly from your wrist. Water-resistant design.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/1/n/y/g85-5g-pb2b0001in-motorola-original-imah2mh2gszwc9bz.jpeg'
+                    ],
+                    timeLimit: 'Limited stock!'
+                },
+                {
+                    id: 'product8',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                    title: 'Samsung Galaxy S23 Ultra',
+                    description: 'Capture stunning photos with the 200MP camera.',
+                    price: '₹1,24,999',
+                    rating: 4.8,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Samsung',
+                    newSeason: 'Flagship Smartphone',
+                    detailedDescription: 'Experience the power of the Samsung Galaxy S23 Ultra with its 200MP camera, Snapdragon 8 Gen 2 processor, and stunning AMOLED display. Perfect for photography enthusiasts and power users.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Exclusive launch offer!'
+                },
+                {
+                    id: 'product9',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                    title: 'Apple iPhone 15 Pro Max',
+                    description: 'The ultimate smartphone experience.',
+                    price: '₹1,49,999',
+                    rating: 4.9,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Apple',
+                    newSeason: 'Premium Smartphone',
+                    detailedDescription: 'Discover the future of smartphones with the Apple iPhone 15 Pro Max. Featuring a stunning Super Retina XDR display, A17 Bionic chip, and advanced camera system for professional-quality photos and videos.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Launch day special!'
+                },
+                {
+                    id: 'product10',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/1/n/y/g85-5g-pb2b0001in-motorola-original-imah2mh2gszwc9bz.jpeg',
+                    title: 'OnePlus 11R 5G',
+                    description: 'Fast performance with Snapdragon 8+ Gen 1.',
+                    price: '₹34,999',
+                    rating: 4.5,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'OnePlus',
+                    newSeason: 'Performance Smartphone',
+                    detailedDescription: 'Experience lightning-fast performance with the OnePlus 11R 5G. Equipped with Snapdragon 8+ Gen 1, AMOLED display, and Hasselblad camera for stunning photography.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/1/n/y/g85-5g-pb2b0001in-motorola-original-imah2mh2gszwc9bz.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Limited time offer!'
+                },
+                {
+                    id: 'product11',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                    title: 'Google Pixel 7a',
+                    description: 'AI-powered camera and stock Android experience.',
+                    price: '₹43,999',
+                    rating: 4.6,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Google',
+                    newSeason: 'Stock Android Experience',
+                    detailedDescription: 'Capture stunning photos with the Google Pixel 7a\'s AI-powered camera. Enjoy a pure Android experience with timely updates and exclusive features.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Pre-order now!'
+                },
+                {
+                    id: 'product12',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                    title: 'Vivo V25 Pro 5G',
+                    description: 'Stylish design with powerful performance.',
+                    price: '₹32,999',
+                    rating: 4.3,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Vivo',
+                    newSeason: 'Stylish Smartphone',
+                    detailedDescription: 'Experience the perfect blend of style and performance with the Vivo V25 Pro 5G. Features a stunning AMOLED display, powerful MediaTek Dimensity 1300 processor, and a versatile camera system.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Limited stock!'
+                },
+                {
+                    id: 'product13',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/1/n/y/g85-5g-pb2b0001in-motorola-original-imah2mh2gszwc9bz.jpeg',
+                    title: 'Realme GT 2 Pro',
+                    description: 'Flagship performance with Snapdragon 8 Gen 1.',
+                    price: '₹49,999',
+                    rating: 4.7,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Realme',
+                    newSeason: 'Flagship Smartphone',
+                    detailedDescription: 'Unleash the power of the Realme GT 2 Pro with its Snapdragon 8 Gen 1 processor, AMOLED display, and Hasselblad camera for professional-quality photos.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/1/n/y/g85-5g-pb2b0001in-motorola-original-imah2mh2gszwc9bz.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Exclusive launch offer!'
+                },
+                {
+                    id: 'product14',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                    title: 'Oppo Reno 8 Pro 5G',
+                    description: 'AI-enhanced camera and sleek design.',
+                    price: '₹45,999',
+                    rating: 4.4,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Oppo',
+                    newSeason: 'Sleek Smartphone',
+                    detailedDescription: 'Capture stunning photos with the Oppo Reno 8 Pro 5G\'s AI-enhanced camera. Enjoy a sleek design, AMOLED display, and powerful performance for everyday tasks.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/8/s/1/-original-imah2mhfv6rdthth.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Limited stock!'
+                },
+                {
+                    id: 'product15',
+                    image: 'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                    title: 'Xiaomi 12 Pro 5G',
+                    description: 'Flagship performance with Snapdragon 8 Gen 1.',
+                    price: '₹62,999',
+                    rating: 4.6,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Xiaomi',
+                    newSeason: 'Premium Smartphone',
+                    detailedDescription: 'Experience the power of the Xiaomi 12 Pro 5G with its Snapdragon 8 Gen 1 processor, AMOLED display, and versatile camera system for stunning photography.',
+                    additionalImages: [
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/2/j/g85-5g-pb2b0001in-motorola-original-imah2mh2uyzsbcfp.jpeg',
+                        'https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg'
+                    ],
+                    timeLimit: 'Exclusive launch offer!'
+                },
+                {
+                    id: 'product16',
+                    image: 'https://via.placeholder.com/200x150?text=Jeans',
+                    title: 'Men\'s Slim Fit Jeans',
+                    description: 'Comfortable and stylish denim.',
+                    price: '₹1,299',
+                    rating: 3.8,
+                    Category: 'Fashion',
+                    subcategory: 'Men',
+                    brand: 'Levi\'s',
+                    newSeason: 'Casual Wear',
+                    detailedDescription: 'Upgrade your wardrobe with these versatile slim-fit jeans. Made from high-quality denim with a hint of stretch for ultimate comfort and flexibility. Perfect for everyday wear, pair them with a t-shirt or a casual shirt.',
+                    additionalImages: [
+                        'https://via.placeholder.com/600x400?text=Jeans+View+1',
+                        'https://via.placeholder.com/600x400?text=Jeans+View+2'
+                    ],
+                    timeLimit: 'New arrival discount'
+                },
+                {
+                    id: 'product17',
+                    image: 'https://via.placeholder.com/200x150?text=Coffee+Maker',
+                    title: 'Automatic Coffee Maker',
+                    description: 'Brew perfect coffee every morning.',
+                    price: '₹3,500',
+                    rating: 4.3,
+                    Category: 'Appliances',
+                    subcategory: 'Kitchen Appliances',
+                    brand: 'Philips',
+                    newSeason: 'Kitchen Appliances',
+                    detailedDescription: 'Start your day right with freshly brewed coffee from this automatic coffee maker. Features a programmable timer, large water reservoir, and a keep-warm function. Easy to clean and brews up to 12 cups.',
+                    additionalImages: [
+                        'https://via.placeholder.com/600x400?text=Coffee+Maker+View+1',
+                        'https://via.placeholder.com/600x400?text=Coffee+Maker+View+2'
+                    ],
+                    timeLimit: 'Grab it now!'
+                },
+                {
+                    id: 'product18',
+                    image: 'https://via.placeholder.com/200x150?text=Wireless+Headphones',
+                    title: 'Noise Cancelling Headphones',
+                    description: 'Immersive sound, comfortable fit.',
+                    price: '₹2,499',
+                    rating: 4.2,
+                    Category: 'Electronics',
+                    subcategory: 'Audio',
+                    brand: 'Sony',
+                    newSeason: 'Audio Gear Focus',
+                    detailedDescription: 'Escape into your music with these premium noise-cancelling headphones. Ergonomically designed for long-listening comfort, they deliver rich, clear audio with deep bass. Features include touch controls, 30-hour battery life, and a foldable design for portability.',
+                    additionalImages: [
+                        'https://via.placeholder.com/600x400?text=Headphones+View+1',
+                        'https://via.placeholder.com/600x400?text=Headphones+View+2'
+                    ],
+                    timeLimit: 'Ends in 1d 10h'
+                },
+                {
+                    id: 'product19',
+                    image: 'https://via.placeholder.com/200x150?text=Smartwatch',
+                    title: 'Fitness Tracker Smartwatch',
+                    description: 'Track your health and stay connected.',
+                    price: '₹3,999',
+                    rating: 4.0,
+                    Category: 'Electronics',
+                    subcategory: 'Mobiles',
+                    brand: 'Noise',
+                    newSeason: 'Fitness Tech',
+                    detailedDescription: 'Monitor your health and fitness goals with this advanced smartwatch. It tracks heart rate, steps, sleep, and features multiple sports modes. Receive notifications, control music, and make calls directly from your wrist. Water-resistant design.',
+                    additionalImages: [
+                        'https://via.placeholder.com/600x400?text=Smartwatch+View+1',
+                        'https://via.placeholder.com/600x400?text=Smartwatch+View+2'
+                    ],
+                    timeLimit: 'Limited stock!'
+                },
             ];
 
             function createProductCard(product) {
@@ -349,6 +585,13 @@
             const stillLookingSlider = document.getElementById('stillLookingSlider');
             const fashionProducts = dummyProducts.filter(p => p.Category === 'Fashion');
             populateSlider(stillLookingSlider, fashionProducts.slice(0, 5)); 
+
+
+            // Populate "Best Deals on Smartphones"
+            const bestDealsonSmartphonesSlider = document.getElementById('BestDealsonSmartphonesSlider');
+            const smartphonesProducts = dummyProducts.filter(p => p.Category === 'Electronics' && p.subcategory === 'Mobiles');
+            populateSlider(bestDealsonSmartphonesSlider, smartphonesProducts.slice(0, 5));
+
 
             // Populate "Best for Electronics"
             const bestElectronicsSlider = document.getElementById('bestElectronicsSlider');
